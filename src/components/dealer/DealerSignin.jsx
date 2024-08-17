@@ -31,12 +31,24 @@ export default function Signin() {
         },
       );
       const resData = await res.data;
-      if (resData.message === "Logged in!") {
-        navigate("/admin/cars", { replace: true });
+      if (resData.userRole === "dealer") {
+       
+        navigate("/dealer", { replace: true });
       }
-    
+       if (resData.userRole === "admin") {
+       
+        navigate("/admin", { replace: true });
+      }
+      
+      
   } ;
   return (
+    <div
+    className="flex justify-center items-center h-screen bg-cover bg-center"
+    style={{ backgroundImage: "url(https://www.pixelstalk.net/wp-content/uploads/2016/08/1080p-Car-Wallpaper-Download-Free.jpg" }} 
+  >
+
+    <div className="flex justify-center items-center w-auto ">
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-y-2 rounded-md border p-6"
@@ -61,5 +73,7 @@ export default function Signin() {
         </Link>
       </p>
     </form>
+    </div>
+    </div>
   );
 }

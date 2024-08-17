@@ -33,8 +33,12 @@ export default function Signup() {
       );
       console.log(res.data);
       if (res.data.message === "signned in!") {
+        window.alert("Signup successfully! Please Signin");
+        setTimeout(() => {
         navigate("/dealer/signin", { replace: true });
-      }
+      }, 3000); 
+    }
+      
     } catch (error) {
       console.log(error);
     }
@@ -42,6 +46,12 @@ export default function Signup() {
     
   };
   return (
+    <div
+    className="flex justify-center items-center h-screen bg-cover bg-center"
+    style={{ backgroundImage: "url(https://www.pixelstalk.net/wp-content/uploads/2016/08/1080p-Car-Wallpaper-Download-Free.jpg" }} // Add your image path here
+  >
+
+    <div className="flex justify-center items-center w-auto ">
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-y-2 rounded-md border p-6"
@@ -72,5 +82,8 @@ export default function Signup() {
         </Link>
       </p>
     </form>
+</div>
+</div>
+
   );
 }

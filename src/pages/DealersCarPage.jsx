@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
+
 function DealersCarPage() {
     const [cars, setCars] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -34,15 +35,10 @@ function DealersCarPage() {
 
     return (
         
+        
         <div className="p-4 sm">
             <h1 className="text-3xl font-bold text-center mb-4">Car Gallery</h1>
-            <div className="flex justify-end">
-        <Link to="/dealer/add-cars">
-          <button className="p-4 text-2xl font-semibold shadow-lg shadow-blue-500 hover:scale-105">
-            ADD CARS
-          </button>
-        </Link>
-      </div>
+          
             {loading ? (
                 <p className="text-center text-gray-500">Loading...</p>
             ) : (

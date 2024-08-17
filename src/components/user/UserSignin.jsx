@@ -32,10 +32,19 @@ export default function UserSignin() {
     const resData = await res.data;
     console.log("Response Data:", resData);
     if (resData.message === "Logged in!") {
+
       navigate("/home", { replace: true });
+    }else{
+      window.alert("User not Exists");
     }
+    
+
+      ;
+    
   }catch (error) {
     console.error("Error during sign in:", error);
+    
+    
   }
 };
    

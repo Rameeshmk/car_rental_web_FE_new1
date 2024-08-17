@@ -23,7 +23,7 @@ const DealerRoutes = ({children}) => {
       
     } catch (error) {
       console.error("Error occurred while checking dealer:", error);
-      navigate("/user/signup", { replace: true });
+      navigate("/dealer/signup", { replace: true });
     }
   };
   checkUser();
