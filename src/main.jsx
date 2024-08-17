@@ -39,15 +39,9 @@ const router = createBrowserRouter([
       
   ),
     children:[
-      {
-        path: "/",
-        element: <App/>
-      },
+     
       
-      {
-        path: "/home",
-        element: <Homepage/>
-      },
+     
      
       {
         path: "/dealer/Signup",
@@ -57,14 +51,29 @@ const router = createBrowserRouter([
         path: "/dealer/Signin",
         element: <DealerSignin/>
       },
+     
       {
-        path: "/user/Signup",
-        element: <UserSignup/>
+        path: "/admin",
+        element: <AdminDashboard />,
+      },
+
+      {
+        path: "/admin/cars",
+        element: <DealersCarPage/>
       },
       {
-        path: "/user/Signin",
-        element: <UserSignin/>
+        path: "/admin/dealers",
+        element: <DealerList/>
       },
+      {
+        path: "/admin/add-car",
+        element: <AddCarPages/>
+      },
+      {
+        path: "/dealer/",
+        element: <DealerDashboard/>
+      },
+     
      
         
     ]
@@ -76,27 +85,10 @@ const router = createBrowserRouter([
      
 element: <AdminLayout/>,
 children:[
-  {
-    path: "/admin",
-    element: <AdminDashboard />,
-  },
+  
  
-  {
-    path: "/admin/cars",
-    element: <DealersCarPage/>
-  },
-  {
-    path: "/admin/dealers",
-    element: <DealerList/>
-  },
-  {
-    path: "/admin/add-car",
-    element: <AddCarPages/>
-  },
-  {
-    path: "/dealer/",
-    element: <DealerDashboard/>
-  },
+ 
+  
  
 ],
 },
@@ -104,25 +96,37 @@ children:[
   element: <UserLayout />,
   children: [
    
-  
-{
-  path: "/car/:id",
-  element: <CarDetails/>
-},    
+    {
+      path: "/home",
+      element: <Homepage/>
+    },
 
+    {
+      path: "/user/Signup",
+      element: <UserSignup/>
+    },
+    {
+      path: "/user/Signin",
+      element: <UserSignin/>
+    },
+    {
+      path: "/car/:id",
+      element: <CarDetails/>
+    }, 
   
   {
     path: "/bookingcar",
     element: <BookingCarPage/>
   },
-  {
-    path: "/user/Signin",
-    element: <UserSignin/>
-  },
- 
-],
-
   
+ 
+], 
+},
+
+
+{
+  path: "/",
+  element: <App/>
 },
 
 

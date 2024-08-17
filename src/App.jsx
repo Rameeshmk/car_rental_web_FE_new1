@@ -8,13 +8,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import FooterPages from './pages/FooterPages'
+import LandingNavbar from './components/navbar/LandingNavbar'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div>
-       
+      <LandingNavbar/>
       <LandingPage/>
       <FooterPages/>
     </div>

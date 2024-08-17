@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const LandingNavbar = () => {
   const navLinks = [
     
     {
       path: "/contactus",
       value: "Contactus",
     },
-    {
-      path: "/dealer/signup",
-      value: "DEALER",
-    },
+    
+    
     {
       path: "/user/signup",
       value: "USER",
@@ -32,4 +30,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default LandingNavbar;
