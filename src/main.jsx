@@ -29,6 +29,18 @@ import AdminDashboard from "./components/admin/AdminDashboard.jsx"
 import UpdateCar from './components/car/UpdateCar.jsx';
 import DealerDashboard from './components/dealer/DealerDashboard.jsx';
 import AddCarPages from './pages/AddCarPages.jsx';
+import UserRoutes from "./potected/UserRoutes.js"
+import AdminRoutes from "./potected/AdminRoutes.js"
+import EditCar from './components/car/EditCar.jsx';
+import RemoveCar from "./components/car/RemoveCar.jsx"
+import Contact from './pages/Contact.jsx';
+import About from './pages/About.jsx';
+import FindNow from './pages/FindNow.jsx';
+import OrderSummary from './pages/OrdersSummary.jsx';
+import MyOrders from './pages/MyOrder.jsx';
+import UserReviewForm from "./components/userreview/UserReviewForm.jsx"
+import UserReviewList from "./components/userreview/UserReviewList.jsx"
+import SignOutButton from './components/SignOutButton/SignOutButton.jsx';
 
 const router = createBrowserRouter([
   {
@@ -54,24 +66,36 @@ const router = createBrowserRouter([
      
       {
         path: "/admin",
-        element: <AdminDashboard />,
+        element: <AdminRoutes><AdminDashboard /></AdminRoutes>,
       },
 
       {
         path: "/admin/cars",
-        element: <DealersCarPage/>
+        element:<AdminRoutes> <DealersCarPage/></AdminRoutes>
       },
       {
         path: "/admin/dealers",
-        element: <DealerList/>
+        element:<AdminRoutes> <DealerList/></AdminRoutes>
       },
       {
         path: "/admin/add-car",
-        element: <AddCarPages/>
+        element:<AddCarPages/>
       },
       {
         path: "/dealer/",
         element: <DealerDashboard/>
+      },
+      {
+        path:"/admin/updatecar",
+        element:<AdminRoutes><UpdateCar/></AdminRoutes>
+      },
+      {
+        path:"/admin/edit/:id",
+        element:<AdminRoutes><EditCar/></AdminRoutes>
+      },
+      {
+        path:"/admin/removeCar",
+        element:<AdminRoutes><RemoveCar/></AdminRoutes>
       },
      
      
@@ -93,7 +117,10 @@ children:[
 ],
 },
 {
-  element: <UserLayout />,
+  element:
+   (<UserRoutes>
+    <UserLayout />
+    </UserRoutes>),
   children: [
    
     {
@@ -111,6 +138,7 @@ children:[
     },
     {
       path: "/car/:id",
+
       element: <CarDetails/>
     }, 
   
@@ -118,6 +146,21 @@ children:[
     path: "/bookingcar",
     element: <BookingCarPage/>
   },
+  
+  {
+    path: "/users/myorders",
+    element: <MyOrders/>
+  },
+  {
+    path: "/users/ordersummary",
+    element: <OrderSummary/>
+  },
+  {
+    path: "/review",
+    element: <UserReviewForm/>
+  },
+  
+
   
  
 ], 
@@ -128,12 +171,37 @@ children:[
   path: "/",
   element: <App/>
 },
+{
+  path: "/find",
+  element: <FindNow/>
+},
 
 
 {
-  path:"/updatecar",
-  element:<UpdateCar/>
+  path: "/reviews",
+  element: <UserReviewList/>
 },
+{
+  path: "/user/contactus",
+  element: <Contact/>
+},
+{
+  path: "/user/aboutus",
+  element: <About/>
+},
+{
+  path: "/signout",
+  element: <SignOutButton/>
+},
+
+
+
+
+
+
+
+
+
 
 
     ]);

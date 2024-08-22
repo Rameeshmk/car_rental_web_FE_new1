@@ -15,7 +15,7 @@ const AdminNavbar = () => {
   return (
     <div className="flex items-center justify-between p-4 shadow-lg">
       <Link to="/admin/dashboard">
-        <h1 className="text-2xl text-blue-600">Logo</h1>
+        <h1 className="text-2xl text-blue-600">RENTRY CARS</h1>
       </Link>
       <ul className="flex items-center gap-x-5">
         {navLinks.map((link, index) => (

@@ -22,30 +22,26 @@ function BookingCarPage() {
   }, []);
 
   const paymentHandler = async (event, carId) => {
-    event.preventDefault();
+   
     console.log('Received carId in paymentHandler:', carId);
     const selectedCar = cars.find((car) => car._id === carId);
     
-    if (!selectedCar) {
-      console.error('Selected car not found');
-      console.log(carId);
-      console.log(cars);
     
-      return;
-    }
+    
 
     
     const response = await axios.post(
       "http://localhost:3000/api/v1/payment/order",
       { amount: selectedCar.price },
     );
-console.log("selected car price",selectedCar.price)
+console.log("selected car price",selectedCar.price);
+       console.log(response);
     const order = await response.data.data;
     console.log(order);
     
     
-    const options = {
-      key: import.meta.env.VITE_RAZORPAY_KEY,
+    const option = {
+      key: import.meta.env.VITE_SOME_KEY,
       amount: order.amount,
       currency: order.currency,
       name: "Ram Codder",
@@ -83,7 +79,7 @@ console.log("selected car price",selectedCar.price)
 
  
 
-    const rzp1 = new window.Razorpay(options);
+    const rzp1 = new window.Razorpay(option);
     console.log(error)
 
     rzp1.on("payment.failed", function (response) {
@@ -98,7 +94,7 @@ console.log("selected car price",selectedCar.price)
     <>
       <div className="grid grid-cols-3 px-4">
         {cars.map((car, index) => (
-          <div key={car._id} className="flex h-[300px] w-[600px]">
+          <div key={index} className="flex h-[300px] w-[600px]">
             <section>
               <img
                 src={car.image}

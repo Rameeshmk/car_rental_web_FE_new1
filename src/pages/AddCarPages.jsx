@@ -6,19 +6,20 @@ import * as yup from "yup";
 
 const schema = yup
   .object({
-    name: yup.string().required(),
-    make: yup.string().required(),
+    name: yup.string().required("Name is required"),
+    make: yup.string().required("Make is required"),
     price: yup.string(),
     capacity: yup.string(),
-    dealerEmail: yup.string().required(),
-    image: yup.mixed().required(),
-    model: yup.string().required(),
-    fueltype: yup.string().required(),
+    dealerEmail: yup.string().required("Dealer email is required"),
+    image: yup.mixed().required("Image is required"),
+    model: yup.string().required("Model is required"),
+    fueltype: yup.string().required("Fuel type is required"),
   })
   .required();
 
 export default function AddCarPages() {
   const [dealer, setDealer] = useState([]);
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({ resolver: yupResolver(schema) });
 
   useEffect(() => {
     const dealerList = async () => {
@@ -30,12 +31,6 @@ export default function AddCarPages() {
     dealerList();
   }, []);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
-
   const onSubmit = async (data) => {
     const requestBody = {
       name: data.name,
@@ -45,10 +40,11 @@ export default function AddCarPages() {
       capacity: data.capacity,
       price: data.price,
       dealerEmail: data.dealerEmail,
-      image: data.image[0]
+      image: data.image[0]  // Handle file upload
     };
+    
     try {
-      const res = await axios.post(
+      await axios.post(
         "http://localhost:3000/api/v1/dealer/add-cars",
         requestBody,
         {
@@ -58,7 +54,10 @@ export default function AddCarPages() {
           },
         },
       );
-      console.log(res.data);
+      
+      reset();
+      
+    
     } catch (error) {
       console.log(error);
     }

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useEffect } from 'react' 
 import { useNavigate } from 'react-router-dom';
 
-const DealerRoutes = ({children}) => {
+const UserRoutes = ({children}) => {
   const navigate = useNavigate();
 
 
@@ -11,7 +11,7 @@ const DealerRoutes = ({children}) => {
  const checkUser = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/dealer/check-dealer",
+        "http://localhost:3000/api/v1/user/check-user",
         {
           withCredentials: true,
         },
@@ -23,7 +23,7 @@ const DealerRoutes = ({children}) => {
       
     } catch (error) {
       console.error("Error occurred while checking dealer:", error);
-      navigate("/dealer/signin", { replace: true });
+      navigate("/user/signin", { replace: true });
     }
   };
   checkUser();
@@ -31,4 +31,4 @@ const DealerRoutes = ({children}) => {
 
 return children;
 };
-export default DealerRoutes
+export default UserRoutes

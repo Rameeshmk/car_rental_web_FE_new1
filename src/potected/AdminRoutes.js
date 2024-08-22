@@ -11,7 +11,7 @@ const DealerRoutes = ({children}) => {
  const checkUser = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:3000/api/v1/dealer/check-dealer",
+        "http://localhost:3000/api/v1/dealer/check-admin",
         {
           withCredentials: true,
         },

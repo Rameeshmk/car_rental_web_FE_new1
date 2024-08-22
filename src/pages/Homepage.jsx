@@ -6,6 +6,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 import DatePickers from '../components/datepicker/DatePickers';
 import UsersCars from '../../src/components//car/UsersCars.jsx';
+import FindNow from '../pages/FindNow.jsx';
+import UserReviewForm from '../components/userreview/UserReviewForm.jsx';
+
 
 
 const Homepage = () => {
@@ -32,7 +35,10 @@ const Homepage = () => {
           <h2 className="text-3xl font-bold mb-8">Ready to Rent Your Dream Car?</h2>
 
           <div>
-            <DatePickers/>
+            <FindNow/>
+          </div>
+          <div className='mt-16'>
+          <UserReviewForm/>
           </div>
 
 

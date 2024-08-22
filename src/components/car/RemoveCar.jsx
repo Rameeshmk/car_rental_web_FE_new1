@@ -23,7 +23,15 @@ function DealersCarPage() {
         }
     };
 
-   
+    const removeCar = async (id) => {
+        console.log(id);
+        try {
+            await axios.delete(`http://localhost:3000/api/v1/dealer/delete-cars/${id}`);
+            fetchCars(); 
+        } catch (error) {
+            console.error('Error removing car:', error);
+        }
+    };
 
     return (
         
@@ -40,7 +48,12 @@ function DealersCarPage() {
                         <div key={car._id} className="border rounded-lg p-4 w-60 text-center shadow-md">
                             <img src={car.image} alt={car.name} className="w-full h-32 object-cover mb-2" />
                             <div className="text-lg font-semibold mb-2">{car.name}</div>
-                            
+                            <button
+                                onClick={() => removeCar(car._id)}
+                                className="bg-red-500 text-white py-1 px-4 rounded hover:bg-red-600"
+                            >
+                                Remove
+                            </button>
                         </div>
                     ))}
                 </div>
