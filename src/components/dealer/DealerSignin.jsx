@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import { axiosInstance } from "../../config/axiosInstance";
 
 // Validation schema
 const schema = yup
@@ -25,11 +26,12 @@ export default function Signin() {
 
   const onSubmit = async (data) => {
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/v1/dealer/signin",
-        data,
-        { withCredentials: true }
-      );
+      const res = await axiosInstance({
+        url: '/dealer/signin',
+        method: 'post',
+        data: data,
+        withCredentials: true, 
+      });
       const resData = res.data;
       if (resData.userRole === "dealer") {
         navigate("/dealer", { replace: true });

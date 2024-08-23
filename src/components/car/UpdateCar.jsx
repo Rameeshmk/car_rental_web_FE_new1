@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { axiosInstance } from "../../config/axiosInstance";
 
 export default function CarListPage() {
   const [cars, setCars] = useState([]);
@@ -8,7 +9,10 @@ export default function CarListPage() {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/v1/dealer/get-cars");
+        const res= await axiosInstance({
+          url:'/dealer/get-cars',
+        method:"GET",
+        }); 
         setCars(res.data);
       } catch (error) {
         console.error("Error fetching cars:", error);

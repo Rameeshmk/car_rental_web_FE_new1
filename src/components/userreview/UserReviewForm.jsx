@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { axiosInstance } from '../../config/axiosInstance';
 
 const UserReviewForm = ({ onReviewSubmitted }) => {
   const [username, setUsername] = useState('');
@@ -12,8 +13,11 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
     const review = { username, rating, comment };
 
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/user/reviews', review, {
-        headers: { 'Content-Type': 'application/json' },
+      const response = await axiosInstance({
+        url: '/user/reviews',          
+        method: 'POST',                
+        data: review,                  
+        headers: { 'Content-Type': 'application/json' }, 
       });
       onReviewSubmitted(response.data);
       setUsername('');
@@ -46,7 +50,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Your name"
                 required
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
             </div>
             <div>
@@ -56,7 +60,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
                 value={rating}
                 onChange={(e) => setRating(Number(e.target.value))}
                 required
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="mt-1 text-black block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               >
                 {[1, 2, 3, 4, 5].map((num) => (
                   <option key={num} value={num}>{num}</option>
@@ -72,7 +76,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
                 placeholder="Your review"
                 required
                 rows="4"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                className="mt-1 text-black block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
             </div>
             <button

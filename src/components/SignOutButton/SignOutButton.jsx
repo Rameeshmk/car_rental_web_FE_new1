@@ -1,26 +1,30 @@
-// src/SignOutButton.jsx
+
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { axiosInstance } from '../../config/axiosInstance';
 
 const SignOutButton = () => {
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
     try {
-      // Optionally, make a request to the server to invalidate tokens
-      await axios.post("http://localhost:3000/api/v1/signout");
+      
+      await axiosInstance({
+        url:"/signout",
+      method:"POST",
+      });
 
-      // Remove token from local storage
+      
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
 
-      // Remove cookies
+      
       document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
       document.cookie = 'refreshToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
 
-      // Redirect to login or home page
+      
       navigate('/');
     } catch (error) {
       console.error('Sign-out error:', error);

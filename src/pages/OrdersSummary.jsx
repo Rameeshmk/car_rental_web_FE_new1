@@ -5,22 +5,26 @@ import axios from 'axios';
 
 const OrderSummary = () => {
   const location = useLocation();
-  const navigate = useNavigate(); // To navigate programmatically
+  const navigate = useNavigate(); 
   const { state } = location;
 
   useEffect(() => {
     const sendOrderSummary = async () => {
       if (state) {
         try {
-          await axios.post('http://localhost:3000/api/v1/order/orders', {
-            userId: state.userId,
-            car: state.car,
-            startDate: state.startDate,
-            endDate: state.endDate,
-            totalDays: state.totalDays,
-            rentPerDay: state.rentPerDay,
-            totalAmount: state.totalAmount,
-            pickupLocation: state.pickupLocation,
+           await axiosInstance({
+            url: '/order/orders',
+            method: 'POST',
+            data: {
+              userId: state.userId,
+              car: state.car,
+              startDate: state.startDate,
+              endDate: state.endDate,
+              totalDays: state.totalDays,
+              rentPerDay: state.rentPerDay,
+              totalAmount: state.totalAmount,
+              pickupLocation: state.pickupLocation,
+            },
           });
         } catch (error) {
           console.error('Error saving order summary:', error);

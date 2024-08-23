@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useEffect } from 'react' 
 import { useNavigate } from 'react-router-dom';
+import { axiosInstance } from '../config/axiosInstance';
 
 const UserRoutes = ({children}) => {
   const navigate = useNavigate();
@@ -10,12 +11,11 @@ const UserRoutes = ({children}) => {
     useEffect(() => {
  const checkUser = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:3000/api/v1/user/check-user",
-        {
-          withCredentials: true,
-        },
-      );
+      const response = await axiosInstance({
+        url: '/user/check-user',
+        method: 'GET',
+        withCredentials: true, // Ensure credentials are included
+      });
 
       const data = res.data;
       console.log("res",data);

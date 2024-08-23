@@ -3,6 +3,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
 import axios from 'axios';
+import { axiosInstance } from '../config/axiosInstance';
 
 function FindNow() {
   const [startDate, setStartDate] = useState(null);
@@ -20,7 +21,12 @@ function FindNow() {
     const fetchCars = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/dealer/get-cars'); // Replace with your API endpoint
+        const response = await axiosInstance({
+          url:'/dealer/get-cars',
+        method:"GET",
+        }); 
+
+
         setAllCars(response.data);
         setFilteredCars(response.data);
       } catch (error) {

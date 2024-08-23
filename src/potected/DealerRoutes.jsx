@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useEffect } from 'react' 
 import { useNavigate } from 'react-router-dom';
+import { axiosInstance } from '../config/axiosInstance';
 
 const DealerRoutes = ({children}) => {
   const navigate = useNavigate();
@@ -10,12 +11,11 @@ const DealerRoutes = ({children}) => {
     useEffect(() => {
  const checkUser = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:3000/api/v1/dealer/check-dealer",
-        {
-          withCredentials: true,
-        },
-      );
+      const res = await axiosInstance({
+        url: '/dealer/check-dealer',
+        method: 'GET',
+        withCredentials: true, 
+      });
 
       const data = res.data;
       console.log("res",data);

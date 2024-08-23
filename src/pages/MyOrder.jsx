@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { axiosInstance } from '../config/axiosInstance';
 
 
 const MyOrders = () => {
@@ -15,7 +16,10 @@ const MyOrders = () => {
         if (!userId) {
           throw new Error('User not logged in');
         }
-        const response = await axios.get(`http://localhost:3000/api/v1/order/orders/${userId}`);
+        const response = await axiosInstance({
+          url:`/order/orders/${userId}`,
+        method:"GET",
+      });
         const data = response.data.data;
         console.log("rami",data);
 

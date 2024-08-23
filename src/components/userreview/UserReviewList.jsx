@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { axiosInstance } from '../../config/axiosInstance';
 
 const UserReviewList = () => {
   const [reviews, setReviews] = useState([]);
@@ -7,7 +8,10 @@ const UserReviewList = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/user/reviews');
+        const response = await axiosInstance({
+          url: '/user/reviews', // API endpoint
+          method: 'GET', 
+        });
         setReviews(response.data);
       } catch (error) {
         console.error('Error fetching reviews:', error);

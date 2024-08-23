@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { axiosInstance } from '../../config/axiosInstance';
 
 const UsersCars = () => {
   const [cars, setCars] = useState([]);
@@ -14,9 +15,14 @@ const UsersCars = () => {
     // Fetch car data from the API
     const fetchCars = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/car/car-data", {
-          params: { page: currentPage, limit: itemsPerPage }
-        });
+        const response = await axiosInstance({
+          url: '/car/car-data',
+          method: 'GET',
+          params: {
+              page: currentPage,
+              limit: itemsPerPage,
+          }
+      });
         setCars(response.data.cars); 
         setTotalPages(response.data.totalPages); 
         setLoading(false);

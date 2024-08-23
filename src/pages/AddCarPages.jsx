@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
+import { axiosInstance } from "../config/axiosInstance";
 
 const schema = yup
   .object({
@@ -23,7 +24,10 @@ export default function AddCarPages() {
 
   useEffect(() => {
     const dealerList = async () => {
-      const res = await axios.get("http://localhost:3000/api/v1/dealer/get-dealers");
+      const res = await axiosInstance({
+        url:"dealer/get-dealers",
+        method:"GET",
+      });
       const data = await res.data;
       console.log(data);
       setDealer(data);
@@ -40,20 +44,19 @@ export default function AddCarPages() {
       capacity: data.capacity,
       price: data.price,
       dealerEmail: data.dealerEmail,
-      image: data.image[0]  // Handle file upload
+      image: data.image[0]  
     };
     
     try {
-      await axios.post(
-        "http://localhost:3000/api/v1/dealer/add-cars",
-        requestBody,
-        {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+       await axiosInstance({
+        url: '/dealer/add-cars', 
+        method: 'POST',
+        data: requestBody, 
+        headers: {
+          'Content-Type': 'multipart/form-data', 
         },
-      );
+        withCredentials: true, 
+      });
       
       reset();
       

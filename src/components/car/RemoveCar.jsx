@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { axiosInstance } from '../../config/axiosInstance';
 
 
 function DealersCarPage() {
@@ -14,7 +15,12 @@ function DealersCarPage() {
 
     const fetchCars = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/v1/dealer/get-cars`);
+            const response = await axiosInstance({
+                url:'/dealer/get-cars',
+                method:"GET",
+            });
+
+
             setCars(response.data);
             setLoading(false);
         } catch (error) {
@@ -26,7 +32,10 @@ function DealersCarPage() {
     const removeCar = async (id) => {
         console.log(id);
         try {
-            await axios.delete(`http://localhost:3000/api/v1/dealer/delete-cars/${id}`);
+             await axiosInstance({
+               url: `/dealer/delete-cars/${id}`,
+               method:"DELETE",
+            });
             fetchCars(); 
         } catch (error) {
             console.error('Error removing car:', error);

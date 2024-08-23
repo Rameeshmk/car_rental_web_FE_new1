@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import { axiosInstance } from '../../config/axiosInstance';
 
 const EditCar = () => {
   const { id } = useParams();
@@ -16,7 +17,10 @@ const EditCar = () => {
   useEffect(() => {
     const fetchCarDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/v1/car/cars/${id}`);
+        const response = await axiosInstance({
+        url:`/car/cars/${id}`, 
+        method:"GET",
+      });
         setCar(response.data);
         setInputValues({
           name: response.data.name,
@@ -49,7 +53,13 @@ const EditCar = () => {
 
   const handleSave = async () => {
     try {
-      await axios.put(`http://localhost:3000/api/v1/dealer/update-car/${id}`, inputValues);
+       await axiosInstance({
+
+      url: `/dealer/update-car/${id}`, 
+      method: 'PUT',
+      data: inputValues, 
+    });
+      
       setCar({ ...car, ...inputValues });
       setEditField(null);
     } catch (error) {

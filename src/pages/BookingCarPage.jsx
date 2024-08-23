@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { axiosInstance } from "../config/axiosInstance";
 
 
 function BookingCarPage() {
@@ -8,9 +9,10 @@ function BookingCarPage() {
   useEffect(() => {
     const getAllCars = async () => {
       try {
-        const res = await axios.get(
-          "http://localhost:3000/api/v1/dealer/get-cars",
-        );
+        const res = await axiosInstance({
+         url: "/dealer/get-cars",
+         method:"GET",
+      });
         const data = await res.data;
         console.log(data);
         setCars(data);
@@ -30,10 +32,11 @@ function BookingCarPage() {
     
 
     
-    const response = await axios.post(
-      "http://localhost:3000/api/v1/payment/order",
-      { amount: selectedCar.price },
-    );
+    const response = await axiosInstance({
+      url: '/payment/order',
+      method: 'POST',
+      data: { amount: selectedCar.price }, 
+    });
 console.log("selected car price",selectedCar.price);
        console.log(response);
     const order = await response.data.data;
@@ -55,11 +58,11 @@ console.log("selected car price",selectedCar.price);
         const body = { ...response };
         
 
-        const validateResponse = await axios.post(
-          "http://localhost:3000/api/v1/payment/verify",
-          body,
-        );
-
+         await axiosInstance({
+          url: '/payment/verify',
+          method: 'POST',
+          data: body, 
+        });
         const jsonResponse = await validateResponse;
 
         console.log("jsonResponse", jsonResponse);
@@ -108,8 +111,8 @@ console.log("selected car price",selectedCar.price);
               
               <button
                 onClick={(event) =>{
-                  console.log('Button clicked with carId:', car._id); // Log the carId to ensure it's being passed
-                  paymentHandler(event, car._id); // Call paymentHandler with the carId
+                  console.log('Button clicked with carId:', car._id); 
+                  paymentHandler(event, car._id); 
                 }}
                 className="rounded-lg bg-blue-500 px-2 py-1 text-white"
               >

@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import { format, differenceInDays } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
+import { axiosInstance } from '../../config/axiosInstance';
 
 const pickupLocations = [
   'Kochi',
@@ -36,7 +37,10 @@ const CarDetails = () => {
   useEffect(() => {
     const fetchCarDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/v1/car/cars/${id}`);
+        const response =await axiosInstance({
+          url: `/car/cars/${id}`,
+          method: 'GET',
+        });
         setCar(response.data);
         setLoading(false);
       } catch (error) {
@@ -53,9 +57,10 @@ const CarDetails = () => {
 const checkAvailability = async () => {
   if (startDate && endDate) {
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/order/check-availability', {
-        car_id: id,
-       
+      const response =  await axiosInstance({
+        url: '/order/check-availability',
+        method: 'POST',
+        data: { car_id: id }, // Payload for the POST request
       });
       setIsAvailable(response.data.available);
       if (!response.data.available) {
@@ -96,10 +101,11 @@ useEffect(() => {
 
     try {
       // Create an order on the backend
-      const paymentResponse = await axios.post(
-        "http://localhost:3000/api/v1/payment/order",
-        { amount: totalAmount }
-      );
+      const paymentResponse =  await axiosInstance({
+        url: '/payment/order',
+        method: 'POST',
+        data: { amount: totalAmount }, // Payload for the POST request
+      });
 
       const order = paymentResponse.data.data;
 
@@ -115,7 +121,12 @@ useEffect(() => {
           const body = { ...response };
 
           // Verify payment
-          await axios.post("http://localhost:3000/api/v1/payment/verify", body);
+          await axiosInstance({
+
+          url: '/payment/verify',
+          method: 'POST',
+          data: body, // Payload for the POST request
+        });
 
           // Save order details
           //await axios.post('http://localhost:3000/api/v1/orders', {

@@ -1,15 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Table, Thead, Tbody, Tr, Th, TableContainer } from "@chakra-ui/react";
+import { axiosInstance } from "../config/axiosInstance";
 
 const DealerList = () => {
   const [dealers, setDealers] = useState("");
 
   useEffect(() => {
     const getDealers = async () => {
-      const res = await axios.get(
-        "http://localhost:3000/api/v1/dealer/get-dealers",
-      );
+      const res = await axiosInstance({
+        url:"/dealer/get-dealers",
+        method:"GET",
+    });
       const dlsData = await res.data;
       setDealers(dlsData);
     };
@@ -37,9 +39,10 @@ const DealerList = () => {
                     <Th>
                       <button
                         onClick={async () => {
-                          const res = await axios.delete(
-                            `http://localhost:3000/api/v1/dealer/delete-dealer/${dealer._id}`,
-                          );
+                          const res = await axiosInstance({
+                           url:`/dealer/delete-dealer/${dealer._id}`,
+                            method:"DELETE",
+                        });
                           const data = await res.data;
                           console.log(data);
                           if (data === "removed sucessfully") {
