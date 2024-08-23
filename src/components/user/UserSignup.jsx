@@ -28,7 +28,7 @@ export default function UserSignup() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axiosInstance({
+      const res = await axiosInstance({
         url: '/user/signup', 
         method: 'POST',      
         data: data,         
