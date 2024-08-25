@@ -28,7 +28,7 @@ const UserReviewList = () => {
       <h2 className="text-5xl font-bold text-center mb-8">CONNECT WITH US</h2>
       <div className="flex flex-wrap justify-center items-center gap-8">
      
-      {reviews.length > 0 ? (
+      {reviews.length > 0 ?   (
         reviews.map((review) => (
           
           <div key={review._id} className="flex flex-wrap justify-center  gap-8">
