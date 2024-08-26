@@ -27,8 +27,9 @@ function FindNow() {
         }); 
 
 
-        setAllCars(response.data);
-        setFilteredCars(response.data);
+         
+         setAllCars(Array.isArray(response.data) ? response.data : []);
+         setFilteredCars(Array.isArray(response.data) ? response.data : []);
       } catch (error) {
         setError('Failed to fetch car data.');
       } finally {
@@ -68,7 +69,7 @@ function FindNow() {
     }
   };
 
-  // Group cars by type
+  
   const groupedCars = filteredCars.reduce((acc, car) => {
     if (!acc[car.model]) {
       acc[car.model] = [];

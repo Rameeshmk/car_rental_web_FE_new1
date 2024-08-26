@@ -9,12 +9,13 @@ const UserReviewList = () => {
     const fetchReviews = async () => {
       try {
         const response = await axiosInstance({
-          url: '/user/reviews', // API endpoint
+          url: '/user/reviews', 
           method: 'GET', 
         });
-        setReviews(response.data);
+        setReviews(Array.isArray(response.data) ? response.data : []);
       } catch (error) {
         console.error('Error fetching reviews:', error);
+        setReviews([]); 
       }
     };
 
