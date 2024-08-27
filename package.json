@@ -1,7 +1,7 @@
 {
   "name": "car_rental_fe",
   "private": true,
-  "proxy":"https://car-rental-be-1-ossf.onrender.com",
+  
   "version": "0.0.0",
   "type": "module",
   "scripts": {
