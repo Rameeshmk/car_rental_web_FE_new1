@@ -11,7 +11,7 @@ const UserRoutes = ({children}) => {
     useEffect(() => {
  const checkUser = async () => {
     try {
-      const response = await axiosInstance({
+      const res = await axiosInstance({
         url: '/user/check-user',
         method: 'GET',
         withCredentials: true, // Ensure credentials are included
