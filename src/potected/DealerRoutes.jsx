@@ -31,4 +31,4 @@ const DealerRoutes = ({children}) => {
 
 return children;
 };
-export default DealerRoutes;
+export default DealerRoutes
