@@ -31,4 +31,4 @@ const UserRoutes = ({children}) => {
 
 return children;
 };
-export default UserRoutes
+export default UserRoutes;
