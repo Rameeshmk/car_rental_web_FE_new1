@@ -218,7 +218,7 @@ useEffect(() => {
         <div className='flex w-full pr-0 mr-0'>
           <div className="mt-6 pr-0 mr-8 w-3/12 border-t-2 border-black my-4 mx-auto " />
           <div className="text-2xl">Selected Time Slots</div>
-          <div className="pl-0 ml-8 pr-10 mr-40 mt-6 w-2/12 border-t-2 border-black my-4 mx-auto" />
+          <div className="pl-0 ml-8 pr-10 mr-40 mt-2 w-2/12 border-t-2 border-black my-4 mx-auto" />
         </div>
 
         <section id="get-started" className='block justify-center ml-4 gap-4 w-full mt-6'>
