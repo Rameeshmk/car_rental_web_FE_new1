@@ -228,7 +228,7 @@ useEffect(() => {
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
                 placeholderText="Select pick-up date"
-                className="flex border w-44 border-red-300 p-2 rounded-md mb-2  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex border w-58 border-red-300 p-2 rounded-md mb-2  focus:outline-none focus:ring-2 focus:ring-blue-500"
                 dateFormat="MMMM d, yyyy"
               />
             </div>
@@ -238,7 +238,7 @@ useEffect(() => {
                 selected={endDate}
                 onChange={(date) => setEndDate(date)}
                 placeholderText="Select drop-off date"
-                className="border border-red-300 p-2 w-80 rounded-md mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 mr-10"
+                className="border border-red-300 p-2 w-58 rounded-md mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 mr-10"
                 dateFormat="MMMM d, yyyy"
               />
             </div>
