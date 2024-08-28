@@ -238,7 +238,7 @@ useEffect(() => {
                 selected={endDate}
                 onChange={(date) => setEndDate(date)}
                 placeholderText="Select drop-off date"
-                className="border border-red-300 p-2 w-80 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border border-red-300 p-2 w-80 rounded-md mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 mr-10"
                 dateFormat="MMMM d, yyyy"
               />
             </div>
@@ -247,7 +247,7 @@ useEffect(() => {
           <div className=''>
             <div className='flex justify-end pr-52'>
               {startDate && endDate && (
-                <p className="flex mt-4 text-gray-600 border border-red border-red-300 rounded-md mb-4 h-20 items-center justify-center px-10">
+                <p className="flex mt-4 text-gray-600 border border-red border-red-300 rounded-md mb-2 h-20 items-center justify-center px-10">
                   Selected Dates: {format(startDate, 'MMMM d, yyyy')} - {format(endDate, 'MMMM d, yyyy')}
                 </p>
               )}
