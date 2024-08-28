@@ -217,7 +217,7 @@ useEffect(() => {
 
         <div className='flex w-full pr-0 mr-0 ml-10'>
           <div className="mt-4 pr-0  w-3/12 border-t-2 border-black my-4 mx-auto " />
-          <div className="text-2xl mr-6 ml-6">Selected Time Slots</div>
+          <div className="text-2xl ">Selected Time Slots</div>
           <div className="pl-0 ml pr-10 mr-40 mt-4 w-2/12 border-t-2 border-black my-4 mx-auto" />
         </div>
 
