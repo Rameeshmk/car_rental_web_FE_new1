@@ -228,7 +228,7 @@ useEffect(() => {
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
                 placeholderText="Select pick-up date"
-                className="flex border w-80 border-red-300 p-2 rounded-md mb-4  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex border w-44 border-red-300 p-2 rounded-md mb-2  focus:outline-none focus:ring-2 focus:ring-blue-500"
                 dateFormat="MMMM d, yyyy"
               />
             </div>
@@ -287,7 +287,7 @@ useEffect(() => {
             </label>
             <button
               onClick={paymentHandler}
-              className={`rounded-lg px-2 py-1 text-white mt-10 ml-6 w-36 h-12 ${isButtonDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'}`}
+              className={`rounded-lg px-2 py-1 text-white mt-4 ml-6 w-36 h-12 ${isButtonDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'}`}
               disabled={isButtonDisabled}
             >
               Book now
