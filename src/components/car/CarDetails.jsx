@@ -221,8 +221,8 @@ useEffect(() => {
           <div className="pl-0 ml-8 pr-10 mr-40 mt-4 w-2/12 border-t-2 border-black my-4 mx-auto" />
         </div>
 
-        <section id="get-started" className='block justify-center ml-2 gap-4 w-full mt-2 mr-10'>
-          <div className='flex justify-center ml-2 gap-4 w-full'>
+        <section id="get-started" className='block justify-center  gap-4 w-full mt-2 mr-16'>
+          <div className='flex justify-center  gap-4 w-full'>
             <div className='flex pl-20 mr-10'>
               <DatePicker
                 selected={startDate}
