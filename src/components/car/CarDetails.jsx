@@ -205,23 +205,23 @@ useEffect(() => {
 
         <div className='flex justify-end items-end mr-0'>
           <div className="">
-            <h2 className="text-2xl font-bold ">{car.name}</h2>
-            <p className="text-black text-1xl">Make: {car.make}</p>
-            <p className="text-black text-1xl font-bold mt-2">₹{car.price}</p>
-            <p className="text-black text-1xl mt-2">{car.model}</p>
-            <p className="text-black text-1xl">Fuel Type: {car.fueltype}</p>
-            <p className="text-black text-1xl">Capacity: {car.capacity}</p>
-            <p className="text-white text-1xl">UserId: {userId}</p>
+            <h2 className="text-1xl font-bold ">{car.name}</h2>
+            <p className="text-black ">Make: {car.make}</p>
+            <p className="text-black  font-bold mt-2">₹{car.price}</p>
+            <p className="text-black  mt-2">{car.model}</p>
+            <p className="text-black ">Fuel Type: {car.fueltype}</p>
+            <p className="text-black ">Capacity: {car.capacity}</p>
+            <p className="text-white ">UserId: {userId}</p>
           </div>
         </div>
 
-        <div className='flex w-full pr-0 mr-0'>
+        <div className='flex w-full pr-0 mr-0 ml-10'>
           <div className="mt-4 pr-0 mr-8 w-3/12 border-t-2 border-black my-4 mx-auto " />
           <div className="text-2xl">Selected Time Slots</div>
           <div className="pl-0 ml-8 pr-10 mr-40 mt-4 w-2/12 border-t-2 border-black my-4 mx-auto" />
         </div>
 
-        <section id="get-started" className='block justify-center ml-2 gap-4 w-full mt-2'>
+        <section id="get-started" className='block justify-center ml-2 gap-4 w-full mt-2 mr-10'>
           <div className='flex justify-center ml-2 gap-4 w-full'>
             <div className='flex pl-20 mr-10'>
               <DatePicker
@@ -276,13 +276,13 @@ useEffect(() => {
 
         <div className='flex justify-end items-end'>
           <div className='block mr-40'>
-            <label className="block text-lg mb-6 ml-10">
+            <label className="block text-lg mb-4 ml-10">
               TOTAL DAYS: {totalDays}
             </label>
-            <label className="block text-white-700 text-lg font-medium text-lg mb-6">
+            <label className="block text-white-700 text-lg font-medium text-lg mb-4">
               RENT PER DAY: ₹ {rentPerDay}
             </label>
-            <label className="block text-white-700 text-xl font-medium mt-8">
+            <label className="block text-white-700 text-xl font-medium mt-4">
               TOTAL AMOUNT: ₹ {totalAmount}
             </label>
             <button
