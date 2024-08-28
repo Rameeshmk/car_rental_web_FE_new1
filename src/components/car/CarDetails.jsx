@@ -205,13 +205,13 @@ useEffect(() => {
 
         <div className='flex justify-end items-end mr-0'>
           <div className="">
-            <h2 className="text-4xl font-bold mb-2">{car.name}</h2>
-            <p className="text-black text-2xl">Make: {car.make}</p>
-            <p className="text-black text-2xl font-bold mt-2">₹{car.price}</p>
-            <p className="text-black text-2xl mt-2">{car.model}</p>
-            <p className="text-black text-2xl">Fuel Type: {car.fueltype}</p>
-            <p className="text-black text-2xl">Capacity: {car.capacity}</p>
-            <p className="text-white text-2xl">UserId: {userId}</p>
+            <h2 className="text-2xl font-bold mb-2">{car.name}</h2>
+            <p className="text-black text-1xl">Make: {car.make}</p>
+            <p className="text-black text-1xl font-bold mt-2">₹{car.price}</p>
+            <p className="text-black text-1xl mt-2">{car.model}</p>
+            <p className="text-black text-1xl">Fuel Type: {car.fueltype}</p>
+            <p className="text-black text-1xl">Capacity: {car.capacity}</p>
+            <p className="text-white text-1xl">UserId: {userId}</p>
           </div>
         </div>
 
