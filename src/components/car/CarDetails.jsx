@@ -200,12 +200,12 @@ useEffect(() => {
         <div className='flex w-full pr-0 mr-0 mt-10'>
           <div className="mt-6 pr-0 mr-8 w-4/12 border-t-2 border-black my-4 mx-auto" />
           <div className="pr-0 mr-0 flex text-2xl pl-0">Car Info</div>
-          <div className="pl-0 ml-8 pr-10 mr-40 mt-6 w-3/12 border-t-2 border-black my-4 mx-auto" />
+          <div className="pl-0 ml-8 pr-10 mr-40 mt-4 w-3/12 border-t-2 border-black my-4 mx-auto" />
         </div>
 
         <div className='flex justify-end items-end mr-0'>
           <div className="">
-            <h2 className="text-2xl font-bold mb-1">{car.name}</h2>
+            <h2 className="text-2xl font-bold ">{car.name}</h2>
             <p className="text-black text-1xl">Make: {car.make}</p>
             <p className="text-black text-1xl font-bold mt-2">₹{car.price}</p>
             <p className="text-black text-1xl mt-2">{car.model}</p>
@@ -218,10 +218,10 @@ useEffect(() => {
         <div className='flex w-full pr-0 mr-0'>
           <div className="mt-6 pr-0 mr-8 w-3/12 border-t-2 border-black my-4 mx-auto " />
           <div className="text-2xl">Selected Time Slots</div>
-          <div className="pl-0 ml-8 pr-10 mr-40 mt-2 w-2/12 border-t-2 border-black my-4 mx-auto" />
+          <div className="pl-0 ml-8 pr-10 mr-40 mt-4 w-2/12 border-t-2 border-black my-4 mx-auto" />
         </div>
 
-        <section id="get-started" className='block justify-center ml-4 gap-4 w-full mt-6'>
+        <section id="get-started" className='block justify-center ml-2 gap-4 w-full mt-2'>
           <div className='flex justify-center ml-2 gap-4 w-full'>
             <div className='flex pl-20 mr-10'>
               <DatePicker
