@@ -59,11 +59,7 @@ const router = createBrowserRouter([
         path: "/dealer/Signup",
         element: <DealerSignup/>
       },
-      {
-        path: "/dealer/Signin",
-        element: <DealerSignin/>
-      },
-     
+    
 
       {
         path: "/admin/cars",
@@ -193,6 +189,11 @@ children:[
   path: "/signout",
   element: <SignOutButton/>
 },
+{
+  path: "/dealer/Signin",
+  element: <DealerSignin/>
+},
+
 
 
 
