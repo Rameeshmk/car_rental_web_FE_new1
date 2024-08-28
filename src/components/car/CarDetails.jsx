@@ -198,9 +198,9 @@ useEffect(() => {
       </div>
       <div className='w-full ml-0 pl-0 justify-end items-end'>
         <div className='flex w-full pr-0 mr-0 mt-4 ml-10'>
-          <div className="mt-4 pr-0 mr-8 w-4/12 border-t-2 border-black my-4 mx-auto" />
+          <div className="mt-4 pr-0 mr w-4/12 border-t-2 border-black my-4 mx-auto" />
           <div className="pr-0 mr-0 flex text-1xl pl-0">Car Info</div>
-          <div className="pl-0 ml-8 pr-10 mr-40 mt-4 w-3/12 border-t-2 border-black my-4 mx-auto" />
+          <div className="pl-0 ml pr-10 mr-40 mt-4 w-3/12 border-t-2 border-black my-4 mx-auto" />
         </div>
 
         <div className='flex justify-end items-end mr-0'>
