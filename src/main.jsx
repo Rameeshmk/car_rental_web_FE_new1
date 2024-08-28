@@ -59,7 +59,15 @@ const router = createBrowserRouter([
         path: "/dealer/Signup",
         element: <DealerSignup/>
       },
-    
+      {
+        path: "/dealer/Signin",
+        element: <DealerSignin/>
+      },
+     
+      {
+        path: "/admin",
+        element: <AdminRoutes><AdminDashboard /></AdminRoutes>,
+      },
 
       {
         path: "/admin/cars",
@@ -102,10 +110,6 @@ const router = createBrowserRouter([
 element: <AdminRoutes> <AdminLayout/></AdminRoutes>,
 children:[
   
-  {
-    path: "/admin",
-    element: <AdminRoutes><AdminDashboard /></AdminRoutes>,
-  },
  
  
   
@@ -189,11 +193,6 @@ children:[
   path: "/signout",
   element: <SignOutButton/>
 },
-{
-  path: "/dealer/Signin",
-  element: <DealerSignin/>
-},
-
 
 
 
