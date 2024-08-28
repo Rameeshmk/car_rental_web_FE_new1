@@ -223,7 +223,7 @@ useEffect(() => {
 
         <section id="get-started" className='block justify-center  gap-4 w-full mt-2 mr-16'>
           <div className='flex justify-center  gap-4 w-full'>
-            <div className='flex pl-20 mr-10'>
+            <div className='flex pl-10 mr-10'>
               <DatePicker
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
