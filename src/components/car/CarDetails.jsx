@@ -194,7 +194,7 @@ useEffect(() => {
   return (
     <div className='flex'>
       <div className="mr-16 ml-24 mt-6">
-        <img src={car.image} alt={car.name} className="object-cover" />
+        <img src={car.image} alt={car.name} className="object-cover mr-16" />
       </div>
       <div className='w-full ml-0 pl-0 justify-end items-end'>
         <div className='flex w-full pr-0 mr-0 mt-4 ml-10'>
