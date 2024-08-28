@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import axios from 'axios';
+import { axiosInstance } from '../config/axiosInstance';
 
 const OrderSummary = () => {
   const location = useLocation();
