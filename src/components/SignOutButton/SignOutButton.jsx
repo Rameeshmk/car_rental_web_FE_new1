@@ -57,15 +57,14 @@ const SignOutButton = () => {
     // Extract all cookies
     const cookies = document.cookie.split(';');
 
-    // Clear cookies by setting them to an expired date
+    // Clear cookies by setting them to an expired date with path and domain
     cookies.forEach(cookie => {
       const [name] = cookie.split('=');
       const trimmedName = name.trim();
       
-      // Clear cookies for various paths and domain
+      // Clear cookies with the specified domain and path
       document.cookie = `${trimmedName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${domain}`;
       document.cookie = `${trimmedName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
-      document.cookie = `${trimmedName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; domain=${domain}`;
     });
   };
 
@@ -102,4 +101,3 @@ const SignOutButton = () => {
 };
 
 export default SignOutButton;
-
