@@ -1,6 +1,6 @@
 
 
-import React from 'react';
+  {/*import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { axiosInstance } from '../../config/axiosInstance';
@@ -8,7 +8,7 @@ import { axiosInstance } from '../../config/axiosInstance';
 const SignOutButton = () => {
   const navigate = useNavigate();
 
-  {/*const handleSignOut = async () => {
+const handleSignOut = async () => {
     try {
       
       await axiosInstance({
@@ -23,34 +23,8 @@ const SignOutButton = () => {
       
       document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
       document.cookie = 'refreshToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
-  */}
-
-
-  const handleSignOut = async () => {
-    try {
-      // Perform sign-out request
-      await axiosInstance({
-        url: "/signout",
-        method: "POST",
-      });
-  
-      // Remove items from localStorage
-      localStorage.removeItem('token');
-      localStorage.removeItem('userId');
-  
-      // Clear all cookies
-      document.cookie.split(';').forEach(cookie => {
-        const [name] = cookie.split('=');
-        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
-      });
-  
-    
   
 
-
-
-
-      
       navigate('/');
     } catch (error) {
       console.error('Sign-out error:', error);
@@ -64,4 +38,60 @@ const SignOutButton = () => {
   );
 };
 
+export default SignOutButton;  */}
+
+
+
+
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { axiosInstance } from '../../config/axiosInstance';
+
+const clearAllCookies = (path = '/', domain) => {
+  // Retrieve all cookies
+  const cookies = document.cookie.split(';');
+
+  // Clear each cookie
+  cookies.forEach(cookie => {
+    const [name] = cookie.split('=');
+    document.cookie = `${name.trim()}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=${path}${domain ? `; domain=${domain}` : ''}`;
+  });
+};
+
+const SignOutButton = () => {
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    try {
+      // Perform the sign-out request
+      await axiosInstance({
+        url: '/signout',
+        method: 'POST',
+      });
+
+      // Remove token and userId from localStorage
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
+
+      // Clear all cookies, optionally specify path and domain
+      clearAllCookies('/'); // Adjust path and domain if needed
+
+      // Redirect to home page
+      navigate('/');
+    } catch (error) {
+      console.error('Sign-out error:', error);
+    }
+  };
+
+  return (
+    <button
+      onClick={handleSignOut}
+      className="px-4 py-2 text-lg font-semibold bg-red-500 rounded-lg transition-colors duration-300 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-50"
+    >
+      SIGN OUT
+    </button>
+  );
+};
+
 export default SignOutButton;
+
