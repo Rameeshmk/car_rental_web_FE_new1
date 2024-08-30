@@ -14,7 +14,7 @@ const UserRoutes = ({children}) => {
       const res = await axiosInstance({
         url: '/user/check-user',
         method: 'GET',
-        withCredentials: true, // Ensure credentials are included
+        withCredentials: true, 
       });
 
       const data = res.data;

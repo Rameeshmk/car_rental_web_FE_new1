@@ -54,7 +54,7 @@ export default function UserSignin() {
   return (
     <div className="relative h-screen bg-cover bg-center"
          style={{ backgroundImage: "url(https://www.pixelstalk.net/wp-content/uploads/2016/08/1080p-Car-Wallpaper-Download-Free.jpg)" }}>
-      {/* Navigation Buttons */}
+    
       <div className="absolute top-4 right-4 flex gap-2">
         <Link to="/user/signin">
           <button className={buttonStyle('/user/signin')}>Signin</button>
@@ -64,7 +64,7 @@ export default function UserSignin() {
         </Link>
       </div>
 
-      {/* Signin Form */}
+    
       <div className="flex justify-center items-center h-full">
         <form
           onSubmit={handleSubmit(onSubmit)}
