@@ -47,19 +47,27 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { axiosInstance } from '../../config/axiosInstance';
 
-const clearAllCookies = (path = '/', domain) => {
-  // Retrieve all cookies
-  const cookies = document.cookie.split(';');
-
-  // Clear each cookie
-  cookies.forEach(cookie => {
-    const [name] = cookie.split('=');
-    document.cookie = `${name.trim()}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=${path}${domain ? `; domain=${domain}` : ''}`;
-  });
-};
-
 const SignOutButton = () => {
   const navigate = useNavigate();
+
+  const clearAllCookies = () => {
+    // Define the domain
+    const domain = 'car-rental-be-1-ossf.onrender.com';
+    
+    // Extract all cookies
+    const cookies = document.cookie.split(';');
+
+    // Clear cookies by setting them to an expired date
+    cookies.forEach(cookie => {
+      const [name] = cookie.split('=');
+      const trimmedName = name.trim();
+      
+      // Clear cookies for various paths and domain
+      document.cookie = `${trimmedName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${domain}`;
+      document.cookie = `${trimmedName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+      document.cookie = `${trimmedName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; domain=${domain}`;
+    });
+  };
 
   const handleSignOut = async () => {
     try {
@@ -73,8 +81,8 @@ const SignOutButton = () => {
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
 
-      // Clear all cookies, optionally specify path and domain
-      clearAllCookies('/'); // Adjust path and domain if needed
+      // Clear all cookies
+      clearAllCookies();
 
       // Redirect to home page
       navigate('/');
