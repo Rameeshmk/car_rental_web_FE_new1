@@ -8,7 +8,7 @@ import { axiosInstance } from '../../config/axiosInstance';
 const SignOutButton = () => {
   const navigate = useNavigate();
 
-  const handleSignOut = async () => {
+  {/*const handleSignOut = async () => {
     try {
       
       await axiosInstance({
@@ -23,6 +23,32 @@ const SignOutButton = () => {
       
       document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
       document.cookie = 'refreshToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+  */}
+
+
+  const handleSignOut = async () => {
+    try {
+      // Perform sign-out request
+      await axiosInstance({
+        url: "/signout",
+        method: "POST",
+      });
+  
+      // Remove items from localStorage
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
+  
+      // Clear all cookies
+      document.cookie.split(';').forEach(cookie => {
+        const [name] = cookie.split('=');
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
+      });
+  
+    
+  
+
+
+
 
       
       navigate('/');
