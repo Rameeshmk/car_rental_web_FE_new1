@@ -10,25 +10,21 @@ const SignOutButton = () => {
 
   
   
-    const clearCookies = () => {
-      const cookiesToClear = ['token', 'refreshToken'];
-      cookiesToClear.forEach(cookieName => {
-        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`;
-      });
-    };
+  const clearCookies = () => {
+    const cookiesToClear = ['token', 'refreshToken'];
+    cookiesToClear.forEach(cookieName => {
+      // Clear cookies by setting expired date with domain and path
+      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.car-rental-be-1-ossf.onrender.com`;
+    });
+  };
   
 
 const handleSignOut = async () => {
     try {
       
-      await axiosInstance({
-        url:"/signout",
-      method:"POST",
-  
-      withCredentials:true,
-      });
+      await axiosInstance.post('/signout', {}, { withCredentials: true });
 
-      
+      clearCookies();
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
 
