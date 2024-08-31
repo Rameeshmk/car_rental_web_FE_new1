@@ -8,32 +8,25 @@ import { axiosInstance } from '../../config/axiosInstance';
 const SignOutButton = () => {
   const navigate = useNavigate();
 
-  
-  
-  const clearCookies = () => {
-    const cookiesToClear = ['token', 'refreshToken'];
-    cookiesToClear.forEach(cookieName => {
-      // Clear cookies by setting expired date with domain and path
-      document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.car-rental-be-1-ossf.onrender.com`;
-    });
-  };
+
   
 
 const handleSignOut = async () => {
     try {
       
       await axiosInstance({
-        method:"POST",
-        url:'/signout', 
-        {},
-         { withCredentials: true }});
+        url:"/signout",
+      method:"POST",
+  
+      withCredentials:true,
+      });
 
-      clearCookies();
+      
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
 
       
-      document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+      document.cookie = 'tokens=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
       document.cookie = 'refreshToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
   
 
