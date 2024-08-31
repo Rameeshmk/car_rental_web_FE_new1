@@ -22,7 +22,11 @@ const SignOutButton = () => {
 const handleSignOut = async () => {
     try {
       
-      await axiosInstance.post('/signout', {}, { withCredentials: true });
+      await axiosInstance({
+        method:"POST",
+        url:'/signout', 
+        {},
+         { withCredentials: true }});
 
       clearCookies();
       localStorage.removeItem('token');
