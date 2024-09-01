@@ -37,7 +37,7 @@ const Homepage = () => {
           <div>
             <FindNow/>
           </div>
-          <div className='mt-8 mb-16'>
+          <div className='mt-8 mb-24'>
           <UserReviewForm/>
           </div>
 
@@ -49,7 +49,7 @@ const Homepage = () => {
     </div>
 
     <div>
-    <h1 className="flex  my-6 text-white items-center justify-center bg-black text-4xl font-bold text-center mb-8">BOOK YOUR VEHICLES</h1>
+    <h1 className="flex  my-14 text-white items-center justify-center bg-black text-4xl font-bold text-center mb-8">BOOK YOUR VEHICLES</h1>
   </div>
 <div>
 <h1 className="flex my-32 items-center justify-center bg-white text-2xl font-thin text-center mb-8">RELIABLE VEHICLE HIRE,AS LOW AS PRICE 23/DAY</h1>
