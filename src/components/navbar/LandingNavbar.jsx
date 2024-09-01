@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import DarkMode from "../ui/DarkMode";
 
 const LandingNavbar = () => {
   const [isOpen, setIsOpen] = useState(false); // State to handle mobile menu visibility
@@ -30,6 +31,7 @@ const LandingNavbar = () => {
   return (
     <div className="flex flex-col md:flex-row bg-red-400 justify-between items-center p-4 text-white shadow-lg">
       <h1 className="text-3xl font-bold">RENTRY CARS</h1>
+      <darkMode/>
       
       {/* Mobile Menu Button */}
       <button
