@@ -22,7 +22,7 @@ const Homepage = () => {
         <img
           src="https://img.lovepik.com/photo/48007/1912.jpg_wh860.jpg"
           alt="Background"
-          className="w-full h-96 object-cover"
+          className="w-full h-full object-cover"
         />
       </div>
 
@@ -49,7 +49,7 @@ const Homepage = () => {
     </div>
 
     <div>
-    <h1 className="flex  my-14 text-white items-center justify-center bg-black text-4xl font-bold text-center mb-8">BOOK YOUR VEHICLES</h1>
+    <h1 className="flex  my-6 text-white items-center justify-center bg-black text-4xl font-bold text-center mb-8">BOOK YOUR VEHICLES</h1>
   </div>
 <div>
 <h1 className="flex my-32 items-center justify-center bg-white text-2xl font-thin text-center mb-8">RELIABLE VEHICLE HIRE,AS LOW AS PRICE 23/DAY</h1>
