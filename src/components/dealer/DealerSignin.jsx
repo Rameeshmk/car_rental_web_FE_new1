@@ -33,6 +33,7 @@ export default function Signin() {
         withCredentials: true, 
       });
       const resData = res.data;
+      sessionStorage.setItem("token",resData.token);
       if (resData.userRole === "dealer") {
         navigate("/dealer", { replace: true });
       } else if (resData.userRole === "admin") {
