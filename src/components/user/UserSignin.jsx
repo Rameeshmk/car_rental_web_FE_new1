@@ -37,7 +37,7 @@ export default function UserSignin() {
 
       if (resData.message === "Logged in!") {
         localStorage.setItem('userId', resData.userId); 
-        sessionStorage.setItem("token",token);
+        sessionStorage.setItem("token",resData.token);
         navigate("/home", { replace: true });
       } else {
         window.alert("User not exists");
