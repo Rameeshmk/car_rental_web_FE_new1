@@ -22,7 +22,7 @@ const Homepage = () => {
         <img
           src="https://img.lovepik.com/photo/48007/1912.jpg_wh860.jpg"
           alt="Background"
-          className="w-full h-full object-cover"
+          className="w-full h-96 object-cover"
         />
       </div>
 
