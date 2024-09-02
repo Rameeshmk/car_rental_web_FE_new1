@@ -41,6 +41,7 @@ import MyOrders from './pages/MyOrder.jsx';
 import UserReviewForm from "./components/userreview/UserReviewForm.jsx"
 import UserReviewList from "./components/userreview/UserReviewList.jsx"
 import SignOutButton from './components/SignOutButton/SignOutButton.jsx';
+import theme from './components/ui/Theme.js';
 
 const router = createBrowserRouter([
   {
@@ -208,7 +209,7 @@ children:[
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
   <RouterProvider router={router} />
   </ChakraProvider>
   </React.StrictMode>,
