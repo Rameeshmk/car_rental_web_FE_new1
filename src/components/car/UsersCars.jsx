@@ -42,7 +42,7 @@ const UsersCars = ({ selectedModel }) => {
   return (
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-        {cars.map((car) => (
+        {cars && cars.map((car) => (
           <div key={car._id} className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
             <img src={car.image} alt={car.name} className="w-full h-48 object-cover" />
             <div className="p-4">
