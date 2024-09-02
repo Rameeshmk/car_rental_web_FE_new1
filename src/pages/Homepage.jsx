@@ -3,9 +3,10 @@ import DatePickers from '../components/datepicker/DatePickers';
 import UsersCars from '../../src/components/car/UsersCars';
 import FindNow from '../pages/FindNow';
 import UserReviewForm from '../components/userreview/UserReviewForm';
+import CategoryButtons from '../components/category/CotegoryButtons';
 
 const Homepage = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedModel, setSelectedModel] = useState('All');
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
@@ -92,9 +93,10 @@ const Homepage = () => {
         </div>
       </div>
 
-      <div className='mx-40'>
-        <UsersCars category={selectedCategory} />
-      </div>
+      <div>
+      <CategoryButtons onSelectCategory={setSelectedModel} />
+      <UsersCars selectedModel={selectedModel} />
+    </div>
     </div>
   );
 };

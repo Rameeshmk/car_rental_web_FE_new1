@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { axiosInstance } from '../../config/axiosInstance';
 
-const UsersCars = ({ category }) => {
+const UsersCars = ({ selectedModel }) => {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,17 +13,15 @@ const UsersCars = ({ category }) => {
     // Fetch car data from the API
     const fetchCars = async () => {
       try {
-        const response = await axiosInstance({
-          url: '/car/car-data',
-          method: 'GET',
+        const response = await axios.get('/car/car-data', {
           params: {
             page: currentPage,
             limit: itemsPerPage,
-            category: category === 'All' ? undefined : category, // Include category in the request
+            model: selectedModel, // Pass the selected model to the API
           }
         });
-        setCars(response.data.cars); 
-        setTotalPages(response.data.totalPages); 
+        setCars(response.data.cars);
+        setTotalPages(response.data.totalPages);
         setLoading(false);
       } catch (error) {
         setError(error.message);
@@ -34,7 +30,7 @@ const UsersCars = ({ category }) => {
     };
 
     fetchCars();
-  }, [currentPage, itemsPerPage, category]);
+  }, [currentPage, itemsPerPage, selectedModel]); // Depend on selectedModel
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -52,6 +48,7 @@ const UsersCars = ({ category }) => {
             <div className="p-4">
               <h3 className="text-xl font-semibold mb-2">{car.name}</h3>
               <p className="text-gray-600">Make: {car.make}</p>
+              <p className="text-gray-600">Model: {car.model}</p>
               
               <Link
                 to={`/car/${car._id}`}
@@ -62,6 +59,7 @@ const UsersCars = ({ category }) => {
             </div>
           </div>
         ))}
+      
       </div>
 
       <div className="flex justify-end mt-4 mb-6">
@@ -86,10 +84,15 @@ const UsersCars = ({ category }) => {
         </button>
       </div>
     </div>
-  );
+  ) 
 };
 
+
+
+
+
 export default UsersCars;
+
 
 
 
