@@ -37,7 +37,7 @@ const Orders = () => {
 
   return (
     <div className="p-6 md:p-12 lg:p-16 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
-      <h1 className="text-4xl font-bold mb-6 text-center text-gray-800">Your Orders</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center text-gray-800"> Orders</h1>
       
       
         <ul>
