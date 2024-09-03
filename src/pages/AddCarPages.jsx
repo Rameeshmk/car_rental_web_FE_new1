@@ -61,8 +61,7 @@ export default function AddCarPages() {
       });
 
       reset();
-      // Optionally navigate to another page after successful submission
-      // navigate('/some-other-page');
+     
 
     } catch (error) {
       console.log(error);
@@ -74,7 +73,7 @@ export default function AddCarPages() {
          style={{ backgroundImage: "url('https://www.pixelstalk.net/wp-content/uploads/2016/08/1080p-Car-Wallpaper-Download-Free.jpg')" }}>
       
       <button
-        onClick={() => navigate(-1)} // Go back to the previous page
+        onClick={() => navigate(-1)} 
         className="absolute top-4 left-4 rounded-md bg-blue-500 py-2 px-4 text-white cursor-pointer hover:bg-blue-600 transition-colors z-10"
       >
         Go Back
