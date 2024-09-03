@@ -18,7 +18,7 @@ const Navbar = () => {
       {/* Go Back Button */}
       <button
         onClick={() => navigate(-1)} // Navigate to the previous page
-        className="absolute top-4 left-4 text-lg px-4 py-2 bg-red-500 rounded-lg text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-50"
+        className="absolute top-4 right-4 text-lg px-4 py-2 bg-red-500 rounded-lg text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-50"
       >
         Go Back
       </button>
@@ -55,6 +55,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
 
