@@ -24,16 +24,17 @@ const DealerList = () => {
   }, []);
 
   return (
-    <div className="relative m-3 border">
+    <div className="relative p-3"> {/* Wrap with relative positioning */}
       {/* Go Back Button */}
       <button
         onClick={() => navigate(-1)} // Go back to the previous page
-        className="absolute top-4 left-4 rounded-md bg-blue-500 px-4 py-2 text-white cursor-pointer hover:bg-blue-600 transition-colors"
+        className="absolute top-4 left-4 rounded-md bg-blue-500 px-4 py-2 text-white cursor-pointer hover:bg-blue-600 transition-colors z-10"
       >
         Go Back
       </button>
 
-      <TableContainer>
+      {/* Table Container */}
+      <TableContainer className="mt-12"> {/* Ensure some margin from the top */}
         <Table variant="striped" colorScheme="teal">
           <Thead>
             <Tr>
@@ -58,7 +59,7 @@ const DealerList = () => {
                         const data = await res.data;
                         console.log(data);
                         if (data === "removed successfully") {
-                          // Refresh the dealer list or navigate to a different page
+                          // Update state to remove dealer from the list
                           setDealers((prevDealers) =>
                             prevDealers.filter((d) => d._id !== dealer._id)
                           );
@@ -82,6 +83,7 @@ const DealerList = () => {
 };
 
 export default DealerList;
+
 
 
 
