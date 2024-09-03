@@ -106,7 +106,7 @@ const Orders = () => {
 
           // Filter out expired orders
           const validOrders = data.filter(order => new Date(order.endDate) >= currentDate);
-          console.log("val",validOrders);
+        
           setOrders(validOrders);
           
         } else {
