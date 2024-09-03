@@ -123,9 +123,6 @@ const Orders = () => {
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-800">Orders</h1>
 
       {orders &&
-      orders.length === 0 ? (
-        <p className="text-center text-lg text-gray-600">No orders found.</p>
-      ) : (
         orders.map(order => {
           // Determine if the order is active or expired
           const isActive = new Date(order.endDate) >= currentDate;
@@ -155,7 +152,7 @@ const Orders = () => {
             </div>
           );
         })
-      )}
+      }
     </div>
   );
 };
