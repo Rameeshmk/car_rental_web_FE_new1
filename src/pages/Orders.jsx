@@ -40,12 +40,12 @@ const Orders = () => {
       
       
         <div>
-        <div className="p-6 md:p-12 lg:p-16 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
+        
         <h1 className="text-4xl font-bold mb-6 text-center text-gray-800"> Orders</h1>
           {orders &&
           orders.map(order => (
             <div key={order._id} className="border-b mb-4 pb-4 justify-center items-center">
-              <div>
+              <div className="p-6 md:p-12 lg:p-16 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
               <p className="text-lg text-gray-600">User ID: {order.userId}</p>
               <p className="text-lg text-gray-600">Order ID: {order._id}</p>
 
@@ -71,7 +71,7 @@ const Orders = () => {
           ))}
         </div>
       
-    </div>
+    
   );
 };
 
