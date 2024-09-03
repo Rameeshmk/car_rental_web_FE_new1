@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SignOutButton from "../SignOutButton/SignOutButton";
-
 
 const UserNavbar = () => {
   const [isOpen, setIsOpen] = useState(false); // State to handle mobile menu visibility
+  const navigate = useNavigate(); // Initialize useNavigate for navigation
 
   const navLinks = [
     {
@@ -25,7 +25,6 @@ const UserNavbar = () => {
     <div className="flex flex-col md:flex-row bg-red-400 justify-between items-center p-4 text-white shadow-lg">
       <h1 className="text-3xl font-bold">RENTRY CARS</h1>
       
-      
       {/* Mobile Menu Button */}
       <button
         className="block md:hidden text-white text-2xl"
@@ -38,6 +37,16 @@ const UserNavbar = () => {
       <ul
         className={`flex-col md:flex-row md:flex md:gap-x-4 md:flex md:items-center ${isOpen ? "flex" : "hidden"} md:flex`}
       >
+        {/* Go Back Button */}
+        <li className="hidden md:inline-block">
+          <button
+            onClick={() => navigate(-1)} // Navigate to the previous page
+            className="px-4 py-2 text-lg font-semibold bg-red-500 rounded-lg transition-colors duration-300 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-50"
+          >
+            Go Back
+          </button>
+        </li>
+
         {navLinks.map((link, index) => (
           <li key={index}>
             <Link to={link.path}>
@@ -47,7 +56,7 @@ const UserNavbar = () => {
             </Link>
           </li>
         ))}
-        
+
         <li>
           <SignOutButton />
         </li>
@@ -57,6 +66,7 @@ const UserNavbar = () => {
 };
 
 export default UserNavbar;
+
 
 
 
