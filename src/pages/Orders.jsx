@@ -101,7 +101,7 @@ const Orders = () => {
         console.log("Response Data:", data);
 
         // Set orders state
-        setOrders(data);
+        setOrders(response.data);
       } catch (error) {
         setError(error.message);
       } finally {
