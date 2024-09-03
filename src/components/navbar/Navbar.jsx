@@ -14,17 +14,9 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="relative flex flex-col md:flex-row bg-red-400 p-4 text-white shadow-lg">
-      {/* Go Back Button */}
-      <button
-        onClick={() => navigate(-1)} // Navigate to the previous page
-        className="absolute top-4 right-4 text-lg px-4 py-2 bg-red-500 rounded-lg text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-50"
-      >
-        Go Back
-      </button>
-
+    <div className="flex flex-col md:flex-row bg-red-400 p-4 text-white shadow-lg">
       {/* Navbar Content */}
-      <div className="flex justify-between items-center w-full">
+      <div className="flex items-center justify-between w-full">
         <h1 className="text-3xl font-bold">RENTRY CARS</h1>
 
         {/* Mobile Menu Button */}
@@ -34,30 +26,40 @@ const Navbar = () => {
         >
           {isOpen ? "✕" : "☰"}
         </button>
-      </div>
 
-      {/* Navigation Links */}
-      <ul
-        className={`flex-col md:flex-row md:flex md:gap-x-5 md:flex md:items-center ${isOpen ? "flex" : "hidden"} md:flex`}
-      >
-        {navLinks.map((link, index) => (
-          <li key={index}>
-            <Link to={link.path}>
-              <button className="px-4 py-2 text-lg font-semibold bg-red-500 rounded-lg transition-colors duration-300 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-50">
-                {link.value}
-              </button>
-            </Link>
-          </li>
-        ))}
-        <li>
+        {/* Navigation Links and Buttons */}
+        <div className="flex items-center gap-x-4">
+          {/* Go Back Button */}
+          <button
+            onClick={() => navigate(-1)} // Navigate to the previous page
+            className="hidden md:inline-block text-lg px-4 py-2 bg-red-500 rounded-lg text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-50"
+          >
+            Go Back
+          </button>
+
+          {/* Navigation Links */}
+          <ul className={`flex-col md:flex-row md:flex md:gap-x-5 ${isOpen ? "flex" : "hidden"} md:flex`}>
+            {navLinks.map((link, index) => (
+              <li key={index}>
+                <Link to={link.path}>
+                  <button className="px-4 py-2 text-lg font-semibold bg-red-500 rounded-lg transition-colors duration-300 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-50">
+                    {link.value}
+                  </button>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* Sign Out Button */}
           <SignOutButton />
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default Navbar;
+
 
 
 
