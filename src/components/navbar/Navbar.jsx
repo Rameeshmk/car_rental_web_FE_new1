@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import SignOutButton from "../SignOutButton/SignOutButton";
-
-
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false); // State to handle mobile menu visibility
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const navLinks = [
     {
@@ -15,11 +14,17 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row bg-red-400 justify-between items-center p-4 text-white shadow-lg">
+    <div className="relative flex flex-col md:flex-row bg-red-400 justify-between items-center p-4 text-white shadow-lg">
+      {/* Go Back Button */}
+      <button
+        onClick={() => navigate(-1)} // Navigate to the previous page
+        className="absolute top-4 left-4 text-lg px-4 py-2 bg-red-500 rounded-lg text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-opacity-50"
+      >
+        Go Back
+      </button>
+
       <h1 className="text-3xl font-bold">RENTRY CARS</h1>
 
-      
-      
       {/* Mobile Menu Button */}
       <button
         className="block md:hidden text-white text-2xl"
@@ -50,6 +55,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
 
