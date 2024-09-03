@@ -122,7 +122,8 @@ const Orders = () => {
     <div>
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-800">Orders</h1>
 
-      {orders.length === 0 ? (
+      {orders &&
+      orders.length === 0 ? (
         <p className="text-center text-lg text-gray-600">No orders found.</p>
       ) : (
         orders.map(order => {
