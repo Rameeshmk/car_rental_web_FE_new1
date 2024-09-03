@@ -40,11 +40,11 @@ const Orders = () => {
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-800"> Orders</h1>
       
       
-        <ul>
+        <div>
           {orders &&
           orders.map(order => (
-            <li key={order._id} className="border-b mb-4 pb-4 justify-center items-center">
-              <li>
+            <div key={order._id} className="border-b mb-4 pb-4 justify-center items-center">
+              <div>
               <p className="text-lg text-gray-600">User ID: {order.userId}</p>
               <h2 className="text-2xl font-semibold text-gray-700"> Car Details</h2>
             
@@ -54,8 +54,8 @@ const Orders = () => {
               <p className="text-lg text-gray-600">Fuel Type:{order.car.fueltype} </p>
               
               <p className="text-lg text-gray-600">Rent per Day:{order.car.price} </p>
-              </li>
-              <li>
+              </div>
+              <div>
               <h2 className="text-2xl font-semibold text-gray-700">Order Details</h2>
               <p className="text-lg text-gray-600">Car Name: {order.car.name}</p>
               <p className="text-lg text-gray-600">Start Date: {new Date(order.startDate).toLocaleDateString()}</p>
@@ -63,10 +63,10 @@ const Orders = () => {
               <p className="text-lg font-semibold text-gray-800">Total Days: {order.totalDays}</p>
               <p className="text-lg font-semibold text-gray-800">Total Amount: ₹ {order.totalAmount}</p>
               <p className="text-lg font-semibold text-gray-800">Pickup Location: {order.pickupLocation}</p>
-            </li>
-            </li>
+            </div>
+            </div>
           ))}
-        </ul>
+        </div>
       
     </div>
   );
