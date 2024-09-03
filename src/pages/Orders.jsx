@@ -108,6 +108,7 @@ const Orders = () => {
           const validOrders = data.filter(order => new Date(order.endDate) >= currentDate);
 
           setOrders(validOrders);
+          console.log("val",validOrders);
         } else {
           throw new Error('Invalid response data');
         }
