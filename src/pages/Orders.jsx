@@ -46,7 +46,7 @@ const Orders = () => {
             <div key={order._id} className="border-b mb-4 pb-4 justify-center items-center">
               <div>
               <p className="text-lg text-gray-600">User ID: {order.userId}</p>
-              <p className="text-lg text-gray-600">Order ID: {order._Id}</p>
+              <p className="text-lg text-gray-600">Order ID: {order.Id}</p>
 
               <h2 className="text-2xl font-semibold text-gray-700"> Car Details</h2>
             
