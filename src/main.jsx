@@ -99,6 +99,11 @@ const router = createBrowserRouter([
         path:"/admin/removeCar",
         element:<AdminRoutes><RemoveCar/></AdminRoutes>
       },
+      {
+        path: "/allorders",
+        element:<AdminRoutes><Orders/></AdminRoutes> 
+      },
+      
      
      
         
@@ -194,10 +199,6 @@ children:[
 {
   path: "/signout",
   element: <SignOutButton/>
-},
-{
-  path: "/2",
-  element: <Orders/>
 },
 
 
