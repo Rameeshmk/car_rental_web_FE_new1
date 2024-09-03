@@ -100,7 +100,7 @@ const router = createBrowserRouter([
         element:<AdminRoutes><RemoveCar/></AdminRoutes>
       },
       {
-        path: "/allorders",
+        path: "/admin/allorders",
         element:<AdminRoutes><Orders/></AdminRoutes> 
       },
       
