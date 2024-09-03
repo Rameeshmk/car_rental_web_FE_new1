@@ -14,7 +14,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="relative flex flex-col md:flex-row bg-red-400 justify-between items-center p-4 text-white shadow-lg">
+    <div className="relative flex flex-col md:flex-row bg-red-400 p-4 text-white shadow-lg">
       {/* Go Back Button */}
       <button
         onClick={() => navigate(-1)} // Navigate to the previous page
@@ -23,15 +23,18 @@ const Navbar = () => {
         Go Back
       </button>
 
-      <h1 className="text-3xl font-bold">RENTRY CARS</h1>
+      {/* Navbar Content */}
+      <div className="flex justify-between items-center w-full">
+        <h1 className="text-3xl font-bold">RENTRY CARS</h1>
 
-      {/* Mobile Menu Button */}
-      <button
-        className="block md:hidden text-white text-2xl"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {isOpen ? "✕" : "☰"}
-      </button>
+        {/* Mobile Menu Button */}
+        <button
+          className="block md:hidden text-white text-2xl"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? "✕" : "☰"}
+        </button>
+      </div>
 
       {/* Navigation Links */}
       <ul
