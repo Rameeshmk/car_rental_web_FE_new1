@@ -11,11 +11,7 @@ const Orders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const userId = localStorage.getItem('userId'); 
-        
-        if (!userId) {
-          throw new Error('User not logged in');
-        }
+         
         const response = await axiosInstance({
           url:`/order/allorders`,
         method:"GET",
