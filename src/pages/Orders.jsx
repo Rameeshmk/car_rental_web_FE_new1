@@ -33,7 +33,8 @@ const Orders = () => {
     <div className="p-6 md:p-12 lg:p-16 max-w-4xl mx-auto bg-white shadow-lg rounded-lg">
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-800">Orders</h1>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {orders.map(order => (
+        {orders &&
+        orders.map(order => (
           <div key={order._id} className="bg-white shadow-lg rounded-lg p-6 border border-gray-200">
             <h2 className="text-2xl font-semibold text-gray-700 mb-4">Order ID: {order._id}</h2>
             <div className="mb-4">
