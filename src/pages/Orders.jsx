@@ -96,15 +96,21 @@ const Orders = () => {
           url: `/order/allorders`,
           method: "GET",
         });
-        const data = response.data.data;
 
-        // Get current date
-        const currentDate = new Date();
+        // Ensure response data is available and valid
+        if (response.data && Array.isArray(response.data.data)) {
+          const data = response.data.data;
 
-        // Filter out expired orders
-        const validOrders = data.filter(order => new Date(order.endDate) >= currentDate);
+          // Get current date
+          const currentDate = new Date();
 
-        setOrders(validOrders);
+          // Filter out expired orders
+          const validOrders = data.filter(order => new Date(order.endDate) >= currentDate);
+
+          setOrders(validOrders);
+        } else {
+          throw new Error('Invalid response data');
+        }
       } catch (error) {
         setError(error.message);
       } finally {
