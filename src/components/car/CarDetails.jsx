@@ -27,7 +27,7 @@ const CarDetails = () => {
   const [endDate, setEndDate] = useState(null);
   const [pickupLocation, setPickupLocation] = useState('');
 
-  //set available
+  // Set available
   const [isAvailable, setIsAvailable] = useState(true); // New state for availability
   const [availabilityError, setAvailabilityError] = useState(''); // New state for error messages
 
@@ -168,11 +168,11 @@ const CarDetails = () => {
   const isButtonDisabled = !(startDate && endDate && totalAmount > 0 && pickupLocation);
 
   return (
-    <div className="flex flex-col md:flex-row p-4">
-      <div className="mb-4 md:mb-0 md:mr-8 flex-shrink-0">
-        <img src={car.image} alt={car.name} className="object-cover w-full md:w-64 h-auto" />
+    <div className="flex flex-col lg:flex-row p-4 gap-8">
+      <div className="flex-1 flex items-center justify-center lg:pr-8">
+        <img src={car.image} alt={car.name} className="object-cover w-full lg:w-1/2 h-auto" />
       </div>
-      <div className="flex flex-col flex-grow">
+      <div className="flex-1">
         <div className="flex items-center mb-4">
           <div className="border-t-2 border-black flex-grow mx-4" />
           <div className="text-2xl">Car Info</div>
@@ -196,7 +196,7 @@ const CarDetails = () => {
         </div>
 
         <section id="get-started" className="mb-4">
-          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col lg:flex-row gap-4">
             <div className="flex-1">
               <DatePicker
                 selected={startDate}
@@ -242,7 +242,7 @@ const CarDetails = () => {
           </div>
         </section>
 
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col lg:flex-row justify-end gap-4">
           <div className="text-lg mb-2">
             <label className="block">TOTAL DAYS: {totalDays}</label>
             <label className="block text-white-700 text-lg font-medium">RENT PER DAY: ₹{rentPerDay}</label>
