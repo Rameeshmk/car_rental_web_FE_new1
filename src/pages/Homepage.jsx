@@ -60,7 +60,7 @@ const Homepage = () => {
         
           <h2 className="text-3xl font-bold mb-8">Ready to Rent Your Dream Car?</h2>*/}
 
-          <div>
+          <div className='sm:mx-auto'>
             <FindNow/>
           </div>
           <div className='mt-8 mb-3'>
