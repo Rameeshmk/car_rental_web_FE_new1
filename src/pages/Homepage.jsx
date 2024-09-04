@@ -63,7 +63,7 @@ const Homepage = () => {
           <div className='sm:mx-auto'>
             <FindNow/>
           </div>
-          <div className='mt-8 mb-6'>
+          <div className='mt-8 mb-auto'>
           <UserReviewForm/>
           </div>
 
