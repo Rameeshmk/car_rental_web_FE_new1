@@ -78,14 +78,15 @@ const Homepage = () => {
     <button className="px-6 py-2  text-black font-semibold rounded transition-colors duration-300 hover:text-white hover:bg-blue-700">
     <h6>SUV</h6>
     </button>
-  </div>
-  <div className="flex gap-52 p-4  w-max mx-20">
+    <div className="flex gap-52 p-4  w-max mx-20">
 
   <button className="px-6 py-2 bg-red-100 text-black font-semibold rounded transition-colors duration-300 hover:text-white hover:bg-blue-700">
 
       ALL MODELS
       </button>
     </div>
+  </div>
+  
     </div>
 
 
