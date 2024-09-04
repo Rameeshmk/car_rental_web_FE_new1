@@ -179,7 +179,7 @@ const CarDetails = () => {
           <div className="border-t-2 border-black flex-grow mx-4" />
         </div>
 
-        <div className="mb-4 text-end">
+        <div className="flex mb-4 justify-end">
           <h2 className="text-xl font-bold">{car.name}</h2>
           <p className="text-black">Make: {car.make}</p>
           <p className="text-black font-bold mt-2">₹{car.price}</p>
@@ -242,7 +242,7 @@ const CarDetails = () => {
           </div>
         </section>
 
-        <div className="flex flex-col lg:flex-row justify-end gap-4 text-center">
+        <div className="flex flex-col lg:flex-row justify-center gap-4 ">
           <div className="text-lg mb-2">
             <label className="block">TOTAL DAYS: {totalDays}</label>
             <label className="block text-white-700 text-lg font-medium">RENT PER DAY: ₹{rentPerDay}</label>
@@ -250,7 +250,7 @@ const CarDetails = () => {
           </div>
           <button
             onClick={paymentHandler}
-            className={`rounded-lg px-4 py-2 text-white mr-6 ${isButtonDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'}`}
+            className={`rounded-lg px-4 py-2 text-white  ${isButtonDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'}`}
             disabled={isButtonDisabled}
           >
             Book now
