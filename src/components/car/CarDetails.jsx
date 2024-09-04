@@ -179,7 +179,7 @@ const CarDetails = () => {
           <div className="border-t-2 border-black flex-grow mx-4" />
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 text-center">
           <h2 className="text-xl font-bold">{car.name}</h2>
           <p className="text-black">Make: {car.make}</p>
           <p className="text-black font-bold mt-2">₹{car.price}</p>
