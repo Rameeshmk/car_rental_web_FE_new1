@@ -62,7 +62,7 @@ const Homepage = () => {
 
 
   <div className="flex flex-col md:flex-row mt-32 mb-12 items-center justify-center">
-  <div className="flex flex-wrap gap-4 p-4 w-full max-w-6xl mx-auto">
+  <div className="flex flex-wrap gap-4 p-20 w-full max-w-6xl mx-auto">
     <button className="px-6 py-2 text-black font-semibold rounded transition-colors duration-300 hover:text-white hover:bg-blue-700">
       <h4 className="text-sm md:text-base">SHOW ALL</h4>
     </button>
