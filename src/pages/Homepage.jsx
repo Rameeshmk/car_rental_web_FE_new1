@@ -79,7 +79,7 @@ const Homepage = () => {
       <h6 className="text-sm md:text-base">SUV</h6>
     </button>
   
-    <button className="px-6 py-2 bg-red-100 text-black font-semibold rounded transition-colors duration-300 hover:text-white hover:bg-blue-700">
+    <button className="px-6 pl-16 py-2 bg-red-100 text-black font-semibold rounded transition-colors duration-300 hover:text-white hover:bg-blue-700">
       ALL MODELS
     </button>
     </div>
