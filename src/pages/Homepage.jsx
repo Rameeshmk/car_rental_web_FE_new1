@@ -16,7 +16,7 @@ const Homepage = () => {
 
   return (
     <div>
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden sm:mx-auto">
     
       <div className="absolute inset-0 -z-10">
         <img
