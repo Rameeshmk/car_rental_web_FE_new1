@@ -30,7 +30,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6  bg-white shadow-md rounded-lg">
+    <div className="max-w-sm mx-auto p-6  bg-white shadow-md rounded-lg">
       <button
         onClick={() => setIsFormVisible(!isFormVisible)}
         className="w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mb-4"
