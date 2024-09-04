@@ -248,6 +248,8 @@ const CarDetails = () => {
             <label className="block text-white-700 text-lg font-medium">RENT PER DAY: ₹{rentPerDay}</label>
             <label className="block text-white-700 text-xl font-medium mt-2">TOTAL AMOUNT: ₹{totalAmount}</label>
           </div>
+          </div>
+          <div>
           <button
             onClick={paymentHandler}
             className={`rounded-lg px-4 py-2 text-white  ${isButtonDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'}`}
