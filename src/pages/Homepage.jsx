@@ -90,7 +90,7 @@ const Homepage = () => {
 
 
 
-    <div className='lg:mx-20 sm:mx-auto'>
+    <div className='lg:mx-40 sm:mx-auto'>
 <UsersCars/>
 
 </div>
