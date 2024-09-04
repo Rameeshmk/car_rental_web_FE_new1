@@ -90,39 +90,6 @@ const Homepage = () => {
 
 
 
-
-
-
-
-  {/*<div className='flex mt-32 mb-12 items-center justify-center'>
-  <div className="flex gap-10 p-4   w-max mx-80">
-  <button className="px-6 py-2  text-black font-semibold rounded transition-colors duration-300 hover:text-white hover:bg-blue-700">
-    <h4>SHOW ALL</h4>
-    </button>
-    <button className="px-6 py-2  text-black font-semibold rounded transition-colors duration-300 hover:text-white hover:bg-blue-700">
-    <h6>VAN</h6>
-    </button>
-    <button className="px-6 py-2  text-black font-semibold rounded transition-colors duration-300 hover:text-white hover:bg-blue-700">
-    <h6>SEDAN</h6>
-    </button>
-    <button className="px-6 py-2  text-black font-semibold rounded transition-colors duration-300 hover:text-white hover:bg-blue-700">
-    <h6>HATCHBACK</h6>
-    </button>
-    <button className="px-6 py-2  text-black font-semibold rounded transition-colors duration-300 hover:text-white hover:bg-blue-700">
-    <h6>SUV</h6>
-    </button>
-    <div className="flex gap-52 p-4  w-max mx-20">
-
-  <button className="px-6 py-2 bg-red-100 text-black font-semibold rounded transition-colors duration-300 hover:text-white hover:bg-blue-700">
-
-      ALL MODELS
-      </button>
-    </div>
-  </div>
-  
-    </div>*/}
-
-
     <div className='mx-40 '>
 <UsersCars/>
 
