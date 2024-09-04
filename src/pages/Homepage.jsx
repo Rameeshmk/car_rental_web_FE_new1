@@ -18,7 +18,7 @@ const Homepage = () => {
     <div>
     <div className="relative overflow-hidden sm:mx-auto">
     
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 sm:mx-auto">
         <img
           src="https://img.lovepik.com/photo/48007/1912.jpg_wh860.jpg"
           alt="Background"
