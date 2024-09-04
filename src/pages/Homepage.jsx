@@ -1,9 +1,4 @@
 
-
-
-
-
-// src/LandingPage.jsx
 import React, { useState } from 'react';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -66,7 +61,7 @@ const Homepage = () => {
   </div>
 
 
-  <div className='flex mt-32 mb-12'>
+  <div className='flex mt-32 mb-12 items-center justify-center'>
   <div className="flex gap-10 p-4   w-max mx-80">
   <button className="px-6 py-2  text-black font-semibold rounded transition-colors duration-300 hover:text-white hover:bg-blue-700">
     <h4>SHOW ALL</h4>
