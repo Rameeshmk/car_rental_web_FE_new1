@@ -8,7 +8,7 @@ const UsersCars = () => {
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(8);
+  const [itemsPerPage, setItemsPerPage] = useState(9);
 
   useEffect(() => {
     // Fetch car data from the API
@@ -62,7 +62,7 @@ const UsersCars = () => {
         ))}
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-center items-center mt-6 mb-6 space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row justify-center items-center mt-10 mb-6 space-y-4 sm:space-y-0">
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
