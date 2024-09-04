@@ -249,7 +249,7 @@ const CarDetails = () => {
             <label className="block text-white-700 text-xl font-medium mt-2">TOTAL AMOUNT: ₹{totalAmount}</label>
           </div>
           </div>
-          <div className='text-center mt-10'>
+          <div className='text-center mt-6'>
           <button
             onClick={paymentHandler}
             className={`rounded-lg px-4 py-2 text-white  ${isButtonDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600'}`}
