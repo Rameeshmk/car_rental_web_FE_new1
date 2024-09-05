@@ -104,6 +104,11 @@ const router = createBrowserRouter([
         path: "/admin/allorders",
         element:<AdminRoutes><Orders/></AdminRoutes> 
       },
+      {
+        path: "/3",
+        element: <DealersGarrage/>
+      },
+      
       
      
      
@@ -200,10 +205,6 @@ children:[
 {
   path: "/signout",
   element: <SignOutButton/>
-},
-{
-  path: "/3",
-  element: <DealersGarrage/>
 },
 
 

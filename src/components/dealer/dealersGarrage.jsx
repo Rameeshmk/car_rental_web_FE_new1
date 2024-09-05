@@ -7,12 +7,13 @@ const DealersGarrage = () => {
   const [car, setCar] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const dealerId = localStorage.getItem("dealerId");
 
   useEffect(() => {
     const fetchCarDetails = async () => {
       try {
         const res = await axiosInstance({
-          url: `/dealer/get-cars`,
+          url: `/dealer/dealerscars/${dealerId}`,
           method: 'GET',
         });
        const resData =res.data;
