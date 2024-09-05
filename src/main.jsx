@@ -44,6 +44,7 @@ import SignOutButton from './components/SignOutButton/SignOutButton.jsx';
 import Orders from './pages/Orders.jsx';
 import DealersGarrage from './components/dealer/dealersGarrage.jsx';
 import DealersEditCar from './components/dealer/DealerEditCar.jsx';
+import DealersOrder from './components/dealer/DealerOrder.jsx';
 
 
 const router = createBrowserRouter([
@@ -213,6 +214,11 @@ children:[
 },
 
 
+
+{
+  path: "/5",
+  element: <DealersOrder/>
+},
 
 
 
