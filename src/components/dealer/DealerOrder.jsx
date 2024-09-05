@@ -9,15 +9,45 @@ const DealersOrder = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const fetchCars = async () => {
+      try {
+        const dealerId = localStorage.getItem('dealerId');
+        
+        if (!dealerId) {
+          throw new Error('Your Garrage is Empty');
+        }
+
+        const response = await axiosInstance({
+          url: `/dealer/get-dealerscars/${dealerId}`,
+          method: 'GET',
+        });
+        const data = response.data.data; // Assuming the data is in response.data.data
+        setCars(response.data);
+        console.log(response.data);
+       const carId=response.data.data;
+       localStorage.stItem(carId); 
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchCars();
+  }, []);
+
+  localStorage.stItem(carId); 
+
+  useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const dealerId = localStorage.getItem('dealerId'); 
+        const carId = localStorage.getItem('carId'); 
         
         if (!userId) {
           throw new Error('User not logged in');
         }
         const response = await axiosInstance({
-          url:`/order/orders/${dealerId}`,
+          url:`/order/orders/${carId}`,
         method:"GET",
       });
         const data = response.data.data;
