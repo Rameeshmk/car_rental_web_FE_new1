@@ -33,7 +33,7 @@ export default function Signin() {
         withCredentials: true, 
       });
       const resData = res.data;
-      localStorage.setItem("dealerId",resData.dealerId)
+      localStorage.setItem("dealerId",resData._Id)
       sessionStorage.setItem("token",resData.token);
       if (resData.userRole === "dealer") {
         navigate("/dealer", { replace: true });
