@@ -23,7 +23,7 @@ const DealersOrder = () => {
           method: 'GET',
         });
 
-        localStorage.setItem('carIds', (response.data.map(car => car._id)));
+        localStorage.setItem('carId', (response.data.map(car => car._id)));
         const data = response.data // Assuming the data is in response.data.data
         setCars(response.data);
 
