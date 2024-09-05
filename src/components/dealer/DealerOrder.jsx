@@ -26,7 +26,7 @@ const DealersOrder = () => {
         }
 
         // Store car IDs as a JSON string
-        localStorage.setItem('carId', JSON.stringify(response.data.map(car => car._id)));
+        localStorage.setItem('carId', (response.data.map(car => car._id)));
 
         setCars(response.data); // Set cars state with fetched data
       } catch (error) {
