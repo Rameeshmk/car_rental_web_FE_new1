@@ -80,8 +80,7 @@ const DealersOrder = () => {
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-800">Your Orders</h1>
 
       <ul>
-        {orders.length > 0 ? (
-          orders.map(order => (
+        { orders.map(order => (
             <li key={order._id} className="border-b mb-4 pb-4">
               {order && order.car ? (
                 <>
@@ -109,9 +108,8 @@ const DealersOrder = () => {
               )}
             </li>
           ))
-        ) : (
-          <p>No orders available.</p>
-        )}
+        
+        }
       </ul>
     </div>
   );
