@@ -8,6 +8,7 @@ const DealersOrder = () => {
   const [orders, setOrders] = useState([]);
   
   
+  
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -39,6 +40,9 @@ const DealersOrder = () => {
 
     fetchCars();
   }, []);
+
+  const carId = localStorage.getItem(carId);
+  
 
   useEffect(() => {
     const fetchOrders = async () => {
