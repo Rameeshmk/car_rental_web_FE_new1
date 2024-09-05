@@ -57,7 +57,7 @@ const DealersOrder = () => {
           url:`/order/orders/${carId}`,
         method:"GET",
       });
-        const data = response.data.data;
+        const data = response.data;
         console.log("rami",data);
 
         setOrders(response.data);
