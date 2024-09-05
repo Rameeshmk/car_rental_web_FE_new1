@@ -41,7 +41,7 @@ const DealersOrder = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const carIds = JSON.parse(localStorage.getItem('carIds')) || [];
+        const carIds = JSON.parse(localStorage.getItem('carId')) || [];
         console.log('Retrieved Car IDs:', carIds);
 
         if (carIds.length === 0) throw new Error('No car IDs found in local storage');
