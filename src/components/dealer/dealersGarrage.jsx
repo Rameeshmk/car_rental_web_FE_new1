@@ -12,10 +12,13 @@ const CarDetails = () => {
     const fetchCarDetails = async () => {
       try {
         const response = await axiosInstance({
-          url: `/car/cars/${id}`,
+          url: `/dealer/get-cars`,
           method: 'GET',
         });
+       
         setCar(response.data);
+        localStorage.setItem('dealerId', resData.dealerId); 
+        sessionStorage.setItem("token",resData.token);
         setLoading(false);
       } catch (error) {
         setError(error.message);
@@ -24,7 +27,7 @@ const CarDetails = () => {
     };
 
     fetchCarDetails();
-  }, [id]);
+  }, []);
 
   if (loading) return <p className="text-center text-lg">Loading...</p>;
   if (error) return <p className="text-center text-red-500">Error: {error}</p>;
