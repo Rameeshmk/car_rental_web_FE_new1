@@ -28,6 +28,12 @@ const DealerDashboard = () => {
               EDIT YOUR CAR
             </button>
           </Link>
+          <Link to="/5">
+            <button className="bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+              DEALINGS
+            </button>
+          </Link>
+
 
         </div>
       </div>
