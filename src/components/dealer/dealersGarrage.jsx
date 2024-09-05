@@ -11,12 +11,12 @@ const DealersGarrage = () => {
   useEffect(() => {
     const fetchCarDetails = async () => {
       try {
-        const response = await axiosInstance({
+        const res = await axiosInstance({
           url: `/dealer/get-cars`,
           method: 'GET',
         });
-       
-        setCar(response.data);
+       const resData =res.data;
+        setCar(resData);
         localStorage.setItem('dealerId', resData.dealerId); 
         sessionStorage.setItem("token",resData.token);
         setLoading(false);
