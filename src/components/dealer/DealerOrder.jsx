@@ -83,7 +83,7 @@ const DealersOrder = () => {
         {orders.length > 0 ? (
           orders.map(order => (
             <li key={order._id} className="border-b mb-4 pb-4">
-              {order.car ? (
+              {order && order.car ? (
                 <>
                   <div>
                     <h2 className="text-2xl font-semibold text-gray-700">Car Details</h2>
@@ -118,6 +118,7 @@ const DealersOrder = () => {
 };
 
 export default DealersOrder;
+
 
 
 
