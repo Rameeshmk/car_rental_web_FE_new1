@@ -22,7 +22,7 @@ const DealersGarrage = () => {
           method: 'GET',
         });
         const data = response.data.data; // Assuming the data is in response.data.data
-        setCars(data);
+        setCars(response.data);
         console.log(response.data);
         
         setLoading(false);
