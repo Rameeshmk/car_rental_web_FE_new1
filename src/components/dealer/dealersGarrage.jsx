@@ -19,7 +19,7 @@ const DealersGarrage = () => {
         }
 
         const response = await axiosInstance({
-          url: `/dealer/dealerscars/${dealerId}`,
+          url: `/dealer/get-dealerscars/${dealerId}`,
           method: 'GET',
         });
        const data =response.data.data;
