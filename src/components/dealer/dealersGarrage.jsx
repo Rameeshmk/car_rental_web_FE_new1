@@ -17,8 +17,8 @@ const DealersGarrage = () => {
         });
        const resData =res.data;
         setCar(resData);
-        localStorage.setItem('dealerId', resData.dealerId); 
-        sessionStorage.setItem("token",resData.token);
+        //localStorage.setItem('dealerId', resData.dealerId); 
+        //sessionStorage.setItem("token",resData.token);
         setLoading(false);
       } catch (error) {
         setError(error.message);
