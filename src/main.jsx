@@ -29,8 +29,8 @@ import AdminDashboard from "./components/admin/AdminDashboard.jsx"
 import UpdateCar from './components/car/UpdateCar.jsx';
 import DealerDashboard from './components/dealer/DealerDashboard.jsx';
 import AddCarPages from './pages/AddCarPages.jsx';
-import UserRoutes from "./potected/UserRoutes.js"
-import AdminRoutes from "./potected/AdminRoutes.js"
+import UserRoutes from "./potected/UserRoutes.jsx"
+import AdminRoutes from "./potected/AdminRoutes.jsx"
 import EditCar from './components/car/EditCar.jsx';
 import RemoveCar from "./components/car/RemoveCar.jsx"
 import Contact from './pages/Contact.jsx';

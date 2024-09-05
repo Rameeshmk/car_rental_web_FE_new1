@@ -28,7 +28,7 @@ const CarDetails = () => {
   const [pickupLocation, setPickupLocation] = useState('');
 
   // Set available
-  const [isAvailable, setIsAvailable] = useState(true); // New state for availability
+  //const [isAvailable, setIsAvailable] = useState(true); // New state for availability
   const [availabilityError, setAvailabilityError] = useState(''); // New state for error messages
 
   const userId = localStorage.getItem('userId'); 
