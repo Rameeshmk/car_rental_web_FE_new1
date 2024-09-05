@@ -44,7 +44,7 @@ const DealersOrder = () => {
         const carIds = (localStorage.getItem('carId'));
         console.log('Retrieved Car IDs:', carIds);
 
-        if (carIds.length === 0) throw new Error('No car IDs found in local storage');
+       
 
         // Fetch orders for each car ID
         const orderPromises = carIds.map(carId =>
