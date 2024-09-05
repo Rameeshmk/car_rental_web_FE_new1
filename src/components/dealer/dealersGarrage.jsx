@@ -37,11 +37,12 @@ const DealersGarrage = () => {
 
   if (loading) return <p className="text-center text-lg">Loading...</p>;
   if (error) return <p className="text-center text-red-500">Error: {error}</p>;
-  if (cars.length === 0) return <p className="text-center text-gray-500">No cars found</p>;
+  
 
   return (
     <div className="p-4">
-      {cars.map((car) => (
+      {cars &&
+      cars.map((car) => (
         <div key={car._id} className="flex flex-col lg:flex-row p-4 gap-8 mb-4 border border-gray-300 rounded-lg shadow-md">
           <div className="flex-1 flex items-center justify-center lg:pr-8">
             <img src={car.image} alt={car.name} className="object-cover w-full lg:w-1/2 h-auto" />
