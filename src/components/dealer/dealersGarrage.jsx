@@ -7,19 +7,24 @@ const DealersGarrage = () => {
   const [car, setCar] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const dealerId = localStorage.getItem("dealerId");
+  
 
   useEffect(() => {
     const fetchCarDetails = async () => {
       try {
-        const res = await axiosInstance({
+        const dealerId = localStorage.getItem('dealerId'); 
+        
+        if (!dealerId) {
+          throw new Error('Your Garrage is Empty');
+        }
+
+        const response = await axiosInstance({
           url: `/dealer/dealerscars/${dealerId}`,
           method: 'GET',
         });
-       const resData =res.data;
-        setCar(resData);
-        //localStorage.setItem('dealerId', resData.dealerId); 
-        //sessionStorage.setItem("token",resData.token);
+       const data =response.data.data;
+        setCar(response.data);
+        
         setLoading(false);
       } catch (error) {
         setError(error.message);
