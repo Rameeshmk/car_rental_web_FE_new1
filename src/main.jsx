@@ -114,6 +114,12 @@ const router = createBrowserRouter([
         path: "/4",
         element: <DealersEditCar/>
       },
+      {
+        path: "/5",
+        element: <DealersOrder/>
+      },
+      
+      
       
       
      
@@ -214,11 +220,6 @@ children:[
 },
 
 
-
-{
-  path: "/5",
-  element: <DealersOrder/>
-},
 
 
 
