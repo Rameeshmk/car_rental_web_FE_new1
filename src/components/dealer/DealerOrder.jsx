@@ -14,13 +14,15 @@ const DealersOrder = () => {
         const dealerId = localStorage.getItem('dealerId');
 
         if (!dealerId) {
-          throw new Error('Your Garrage is Empty');
+          throw new Error('Your Garage is Empty');
         }
 
         const response = await axiosInstance({
           url: `/dealer/get-dealerscars/${dealerId}`,
           method: 'GET',
         });
+
+        console.log('Cars Response Data:', response.data); // Log the response data
 
         // Store car IDs as a JSON string
         localStorage.setItem('carIds', JSON.stringify(response.data.map(car => car._id)));
@@ -40,6 +42,7 @@ const DealersOrder = () => {
       try {
         // Retrieve car IDs from local storage
         const carIds = JSON.parse(localStorage.getItem('carIds')) || [];
+        console.log('Retrieved Car IDs:', carIds); // Log retrieved car IDs
 
         if (carIds.length === 0) {
           throw new Error('No car IDs found in local storage');
@@ -55,11 +58,12 @@ const DealersOrder = () => {
 
         // Wait for all order fetches to complete
         const responses = await Promise.all(orderPromises);
+        console.log('Order Responses:', responses); // Log all responses
 
         // Flatten the array of orders from all car IDs
         const allOrders = responses.flatMap(response => response.data.data);
 
-        console.log('All Orders Data:', allOrders); // Check the structure of orders
+        console.log('All Orders Data:', allOrders); // Log all orders data
 
         setOrders(allOrders);
       } catch (error) {
@@ -118,6 +122,7 @@ const DealersOrder = () => {
 };
 
 export default DealersOrder;
+
 
 
 
