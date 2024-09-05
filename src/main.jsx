@@ -42,6 +42,7 @@ import UserReviewForm from "./components/userreview/UserReviewForm.jsx"
 import UserReviewList from "./components/userreview/UserReviewList.jsx"
 import SignOutButton from './components/SignOutButton/SignOutButton.jsx';
 import Orders from './pages/Orders.jsx';
+import DealersGarrage from './components/dealer/dealersGarrage.jsx';
 
 
 const router = createBrowserRouter([
@@ -200,6 +201,12 @@ children:[
   path: "/signout",
   element: <SignOutButton/>
 },
+{
+  path: "/3",
+  element: <DealersGarrage/>
+},
+
+
 
 
 

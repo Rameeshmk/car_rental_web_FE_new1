@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { axiosInstance } from '../../config/axiosInstance';
 
-const CarDetails = () => {
+const DealersGarrage = () => {
   const { id } = useParams(); // Get the car ID from the URL
   const [car, setCar] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -50,4 +50,4 @@ const CarDetails = () => {
   );
 };
 
-export default CarDetails;
+export default DealersGarrage;
