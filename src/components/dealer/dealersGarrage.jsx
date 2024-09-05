@@ -9,6 +9,10 @@ const DealersGarrage = () => {
   const [error, setError] = useState(null);
   
 
+   // States to manage edit mode and input values
+   const [editField, setEditField] = useState(null);
+   const [inputValues, setInputValues] = useState({});
+
   useEffect(() => {
     const fetchCarDetails = async () => {
       try {
