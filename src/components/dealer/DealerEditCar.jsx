@@ -148,4 +148,4 @@ const DealersEditCar = () => {
 
 
 
-export default DealerEditCar;
+export default DealersEditCar;

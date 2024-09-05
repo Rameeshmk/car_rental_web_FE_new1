@@ -23,6 +23,12 @@ const DealerDashboard = () => {
               YOUR GARRAGE
             </button>
           </Link>
+          <Link to="/4">
+            <button className="bg-red-600 text-white py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+              EDIT YOUR CAR
+            </button>
+          </Link>
+
         </div>
       </div>
     </div>

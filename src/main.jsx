@@ -43,6 +43,7 @@ import UserReviewList from "./components/userreview/UserReviewList.jsx"
 import SignOutButton from './components/SignOutButton/SignOutButton.jsx';
 import Orders from './pages/Orders.jsx';
 import DealersGarrage from './components/dealer/dealersGarrage.jsx';
+import DealersEditCar from './components/dealer/DealerEditCar.jsx';
 
 
 const router = createBrowserRouter([
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
       {
         path: "/3",
         element: <DealersGarrage/>
+      },
+      {
+        path: "/4",
+        element: <DealersEditCar/>
       },
       
       
