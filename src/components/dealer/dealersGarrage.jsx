@@ -3,15 +3,83 @@ import { useParams } from 'react-router-dom';
 import { axiosInstance } from '../../config/axiosInstance';
 
 const DealersGarrage = () => {
+  const { id } = useParams(); // Get the car ID from the URL (if needed)
+  const [cars, setCars] = useState([]); // Initialize as an empty array
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchCars = async () => {
+      try {
+        const dealerId = localStorage.getItem('dealerId');
+        
+        if (!dealerId) {
+          throw new Error('Your Garrage is Empty');
+        }
+
+        const response = await axiosInstance({
+          url: `/dealer/get-dealerscars/${dealerId}`,
+          method: 'GET',
+        });
+        const data = response.data.data; // Assuming the data is in response.data.data
+        setCars(data);
+        console.log(response.data);
+        
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchCars();
+  }, []);
+
+  if (loading) return <p className="text-center text-lg">Loading...</p>;
+  if (error) return <p className="text-center text-red-500">Error: {error}</p>;
+  if (cars.length === 0) return <p className="text-center text-gray-500">No cars found</p>;
+
+  return (
+    <div className="p-4">
+      {cars.map((car) => (
+        <div key={car._id} className="flex flex-col lg:flex-row p-4 gap-8 mb-4 border border-gray-300 rounded-lg shadow-md">
+          <div className="flex-1 flex items-center justify-center lg:pr-8">
+            <img src={car.image} alt={car.name} className="object-cover w-full lg:w-1/2 h-auto" />
+          </div>
+          <div className="flex-1">
+            <h2 className="text-2xl font-bold">{car.name}</h2>
+            <p className="text-black">Make: {car.make}</p>
+            <p className="text-black font-bold mt-2">₹{car.price}</p>
+            <p className="text-black mt-2">Model: {car.model}</p>
+            <p className="text-black">Fuel Type: {car.fueltype}</p>
+            <p className="text-black">Capacity: {car.capacity}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default DealersGarrage;
+
+
+
+
+
+
+
+
+
+{/*import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { axiosInstance } from '../../config/axiosInstance';
+
+const DealersGarrage = () => {
   const { id } = useParams(); // Get the car ID from the URL
   const [car, setCar] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
-
-   // States to manage edit mode and input values
-   const [editField, setEditField] = useState(null);
-   const [inputValues, setInputValues] = useState({});
 
   useEffect(() => {
     const fetchCarDetails = async () => {
@@ -28,16 +96,11 @@ const DealersGarrage = () => {
         });
        const data =response.data.data;
         setCar(response.data);
-        setInputValues({
-          name: response.data.name,
-          make: response.data.make,
-          price: response.data.price,
-          model: response.data.model,
-          fueltype: response.data.fueltype,
-          capacity: response.data.capacity
-        });
+        console.log(response.data);
+        
         setLoading(false);
       } catch (error) {
+        
         setError(error.message);
         setLoading(false);
       }
@@ -46,106 +109,25 @@ const DealersGarrage = () => {
     fetchCarDetails();
   }, []);
 
-  const handleEdit = (field) => {
-    setEditField(field);
-  };
-
-  const handleChange = (e) => {
-    setInputValues({
-      ...inputValues,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSave = async () => {
-    try {
-      await axiosInstance({
-        url: `/dealer/update-car/${id}`, 
-        method: 'PUT',
-        data: inputValues, 
-      });
-      
-      setCar({ ...car, ...inputValues });
-      setEditField(null);
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-
-  const handleCancel = () => {
-    setEditField(null);
-    setInputValues({
-      name: car.name,
-      make: car.make,
-      price: car.price,
-      model: car.model,
-      fueltype: car.fueltype,
-      capacity: car.capacity
-    });
-  };
-
   if (loading) return <p className="text-center text-lg">Loading...</p>;
   if (error) return <p className="text-center text-red-500">Error: {error}</p>;
+  if (!car) return <p className="text-center text-gray-500">Car not found</p>;
 
   return (
-    <div className='flex flex-col md:flex-row p-4 md:p-8'>
-      <div className="w-full md:w-1/2 md:pr-4 mb-4 md:mb-0">
-        <img src={car.image} alt={car.name} className="w-full object-cover h-60 md:h-auto" />
+    <div className="flex flex-col lg:flex-row p-4 gap-8">
+      <div className="flex-1 flex items-center justify-center lg:pr-8">
+        <img src={car.image} alt={car.name} className="object-cover w-full lg:w-1/2 h-auto" />
       </div>
-      <div className='w-full md:w-1/2 flex flex-col'>
-        <div className='flex flex-col items-start mb-8'>
-          <div className='w-full border-t-2 border-black my-4 md:my-6' />
-          <div className="text-2xl md:text-3xl font-bold mb-4">Update Your Car's Data</div>
-          <div className='w-full border-t-2 border-black my-4 md:my-6' />
-        </div>
-        <div className='flex flex-col'>
-          {['name', 'make', 'price', 'model', 'fueltype', 'capacity'].map((field) => (
-            <div className="mb-4" key={field}>
-              <div className="flex flex-col md:flex-row items-start">
-                {editField === field ? (
-                  <>
-                    <input
-                      type="text"
-                      name={field}
-                      value={inputValues[field] || ''}
-                      onChange={handleChange}
-                      className="border px-2 py-1 w-full md:w-3/4 mb-2 md:mb-0"
-                    />
-                    <button
-                      onClick={handleSave}
-                      className="bg-green-500 text-white px-4 py-2 rounded w-full md:w-auto mb-2 md:mb-0 md:ml-2"
-                    >
-                      Save
-                    </button>
-                    <button
-                      onClick={handleCancel}
-                      className="bg-red-500 text-white px-4 py-2 rounded w-full md:w-auto md:ml-2"
-                    >
-                      Cancel
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <p className="text-black text-sm md:text-base mb-2 md:mb-0">
-                      {field.charAt(0).toUpperCase() + field.slice(1)}: {car[field]}
-                    </p>
-                    <button
-                      onClick={() => handleEdit(field)}
-                      className="text-blue-500 underline"
-                    >
-                      Edit
-                    </button>
-                  </>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="flex-1">
+        <h2 className="text-2xl font-bold">{car.name}</h2>
+        <p className="text-black">Make: {car.make}</p>
+        <p className="text-black font-bold mt-2">₹{car.price}</p>
+        <p className="text-black mt-2">Model: {car.model}</p>
+        <p className="text-black">Fuel Type: {car.fueltype}</p>
+        <p className="text-black">Capacity: {car.capacity}</p>
       </div>
     </div>
   );
 };
 
-
-
-export default DealersGarrage;
+export default DealersGarrage;*/}
