@@ -12,17 +12,18 @@ const DealersOrder = () => {
     const fetchCars = async () => {
       try {
         const dealerId = localStorage.getItem('dealerId');
-
-        if (!dealerId) {
-          throw new Error('Your Garage is Empty');
-        }
+        if (!dealerId) throw new Error('Your Garage is Empty');
 
         const response = await axiosInstance({
           url: `/dealer/get-dealerscars/${dealerId}`,
           method: 'GET',
         });
 
-        console.log('Cars Response Data:', response.data); // Log the response data
+        console.log('Cars Response Data:', response.data); // Log response for debugging
+
+        if (!Array.isArray(response.data)) {
+          throw new Error('Unexpected data format for cars');
+        }
 
         // Store car IDs as a JSON string
         localStorage.setItem('carIds', JSON.stringify(response.data.map(car => car._id)));
@@ -40,13 +41,10 @@ const DealersOrder = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        // Retrieve car IDs from local storage
         const carIds = JSON.parse(localStorage.getItem('carIds')) || [];
-        console.log('Retrieved Car IDs:', carIds); // Log retrieved car IDs
+        console.log('Retrieved Car IDs:', carIds);
 
-        if (carIds.length === 0) {
-          throw new Error('No car IDs found in local storage');
-        }
+        if (carIds.length === 0) throw new Error('No car IDs found in local storage');
 
         // Fetch orders for each car ID
         const orderPromises = carIds.map(carId =>
@@ -56,14 +54,12 @@ const DealersOrder = () => {
           })
         );
 
-        // Wait for all order fetches to complete
         const responses = await Promise.all(orderPromises);
-        console.log('Order Responses:', responses); // Log all responses
+        console.log('Order Responses:', responses);
 
         // Flatten the array of orders from all car IDs
-        const allOrders = responses.flatMap(response => response.data.data);
-
-        console.log('All Orders Data:', allOrders); // Log all orders data
+        const allOrders = responses.flatMap(response => response.data.data || []);
+        console.log('All Orders Data:', allOrders);
 
         setOrders(allOrders);
       } catch (error) {
@@ -122,6 +118,7 @@ const DealersOrder = () => {
 };
 
 export default DealersOrder;
+
 
 
 
