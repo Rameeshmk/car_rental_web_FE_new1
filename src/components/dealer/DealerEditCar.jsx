@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { axiosInstance } from '../../config/axiosInstance';
 
 const DealersEditCar = () => {
-  const { id } = localStorage.getItem('carId'); // Get the car ID from the URL
+  //const { id } = localStorage.getItem('carId'); // Get the car ID from the URL
   const [car, setCar] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -27,7 +27,8 @@ const DealersEditCar = () => {
           method: 'GET',
         });
 
-       const carId = localStorage.setItem('carId',response.data.car._id)
+        localStorage.setItem('carId', (response.data.map(car => car._id)));
+       
        const data =response.data.data;
         setCar(response.data);
         setInputValues({
@@ -48,6 +49,8 @@ const DealersEditCar = () => {
     fetchCarDetails();
   }, []);
 
+  
+  
   const handleEdit = (field) => {
     setEditField(field);
   };
@@ -60,6 +63,8 @@ const DealersEditCar = () => {
   };
 
   const handleSave = async () => {
+    const carId = localStorage.getItem('carId'); 
+    const id = carId;
     try {
       await axiosInstance({
         url: `/dealer/update-car/${id}`, 
