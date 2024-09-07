@@ -26,6 +26,8 @@ const DealersEditCar = () => {
           url: `/dealer/get-dealerscars/${dealerId}`,
           method: 'GET',
         });
+
+       const carId = localStorage.setItem('carId',response.data.car._id)
        const data =response.data.data;
         setCar(response.data);
         setInputValues({
