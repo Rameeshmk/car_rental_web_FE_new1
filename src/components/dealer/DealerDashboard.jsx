@@ -14,13 +14,13 @@ const DealerDashboard = () => {
           </h1>
           <div className="flex flex-col gap-4 sm:gap-6 md:flex-row md:flex-wrap md:gap-6 md:justify-center">
           <Link to="/admin/add-car">
-            <button className="bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button className="w-full sm:w-48 bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
               ADD CAR
             </button>
           </Link>
 
           <Link to="/3">
-            <button className="bg-red-600 text-white py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button className="w-full sm:w-48 bg-green-600 text-white py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-green-500">
               YOUR GARRAGE
             </button>
           </Link>
