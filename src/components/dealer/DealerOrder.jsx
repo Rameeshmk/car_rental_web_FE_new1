@@ -54,7 +54,7 @@ const DealersOrder = () => {
           throw new Error('User not logged in');
         }
         const response = await axiosInstance({
-          url:`/order/orders/${carId}`,
+          url:`/order/orderss/${carId}`,
         method:"GET",
       });
         const data = response.data;
