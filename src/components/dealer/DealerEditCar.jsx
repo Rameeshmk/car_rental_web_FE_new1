@@ -47,7 +47,7 @@ const DealersEditCar = () => {
     };
 
     fetchCarDetails();
-  }, [dealerId]);
+  }, []);
 
   
   
