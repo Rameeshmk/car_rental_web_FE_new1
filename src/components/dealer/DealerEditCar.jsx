@@ -38,7 +38,7 @@ const DealersEditCar = () => {
     };
 
     fetchCarDetails();
-  }, [id]);
+  }, [dealerId]);
 
   const handleEdit = (field) => {
     setEditField(field);
