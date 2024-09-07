@@ -97,7 +97,7 @@ const DealersEditCar = () => {
   return (
     <div className='flex flex-col md:flex-row p-4 md:p-8'>
       <div className="w-full md:w-1/2 md:pr-4 mb-4 md:mb-0">
-        <img src={response.data.image} alt={response.data.name} className="w-full object-cover h-60 md:h-auto" />
+        <img src={response.data.car.image} alt={response.data.car.name} className="w-full object-cover h-60 md:h-auto" />
       </div>
       <div className='w-full md:w-1/2 flex flex-col'>
         <div className='flex flex-col items-start mb-8'>
