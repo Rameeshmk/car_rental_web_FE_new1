@@ -12,7 +12,7 @@ const DealerDashboard = () => {
           <h1 className="text-3xl font-bold text-white mb-8">
             WELCOME TO DEALER DASHBOARD
           </h1>
-          <div className="flex flex-col items-center justify-center h-full bg-black bg-opacity-50 p-4"></div>
+          <div className="flex flex-col gap-4 sm:gap-6 md:flex-row md:flex-wrap md:gap-6 md:justify-center">
           <Link to="/admin/add-car">
             <button className="bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
               ADD CAR
@@ -34,7 +34,7 @@ const DealerDashboard = () => {
               DEALINGS
             </button>
           </Link>
-
+</div>
 
         </div>
       </div>
