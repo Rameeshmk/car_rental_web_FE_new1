@@ -34,7 +34,7 @@ const DealerDashboard = () => {
               DEALINGS
             </button>
           </Link>
-</div>
+
 
         </div>
       </div>
