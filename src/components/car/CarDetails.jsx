@@ -32,7 +32,7 @@ const CarDetails = () => {
   //const [availabilityError, setAvailabilityError] = useState(''); // New state for error messages
 
   const userId = localStorage.getItem('userId'); 
-  const carId = {id};
+  const carId = id;
 
   useEffect(() => {
     const fetchCarDetails = async () => {
