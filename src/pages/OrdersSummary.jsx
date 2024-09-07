@@ -18,6 +18,7 @@ const OrderSummary = () => {
             method: 'POST',
             data: {
               userId: state.userId,
+              carId:state.carId,
               car: state.car,
               startDate: state.startDate,
               endDate: state.endDate,
