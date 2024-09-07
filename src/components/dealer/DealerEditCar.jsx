@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { axiosInstance } from '../../config/axiosInstance';
 
 const DealersEditCar = () => {
-  const { id } = useParams(); // Get the car ID from the URL
+  const { id } = localStorage.getItem('carId'); // Get the car ID from the URL
   const [car, setCar] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -44,7 +44,7 @@ const DealersEditCar = () => {
     };
 
     fetchCarDetails();
-  }, []);
+  }, [dealerId]);
 
   const handleEdit = (field) => {
     setEditField(field);
