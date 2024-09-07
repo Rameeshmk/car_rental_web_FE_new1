@@ -29,10 +29,10 @@ const DealersEditCar = () => {
 
         localStorage.setItem('carId', (response.data.map(car => car._id)));
        
-       const data =response.data.data;
+       ;
         setCar(response.data);
         setInputValues({
-          name: response.name,
+          name: response.data.data.name,
           make: response.data.make,
           price: response.data.price,
           model: response.data.model,
