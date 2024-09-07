@@ -29,9 +29,10 @@ const CarDetails = () => {
 
   // Set available
   //const [isAvailable, setIsAvailable] = useState(true); // New state for availability
-  const [availabilityError, setAvailabilityError] = useState(''); // New state for error messages
+  //const [availabilityError, setAvailabilityError] = useState(''); // New state for error messages
 
   const userId = localStorage.getItem('userId'); 
+  const carId = id;
 
   useEffect(() => {
     const fetchCarDetails = async () => {
@@ -52,7 +53,7 @@ const CarDetails = () => {
   }, [id]);
 
   // Check availability
-  const checkAvailability = async () => {
+  {/*const checkAvailability = async () => {
     if (startDate && endDate) {
       try {
         const response = await axiosInstance({
@@ -75,7 +76,7 @@ const CarDetails = () => {
 
   useEffect(() => {
     checkAvailability();
-  }, [startDate, endDate]);
+  }, [startDate, endDate]);*/}
 
   // Payment handler
   const paymentHandler = async (event) => {
@@ -128,7 +129,8 @@ const CarDetails = () => {
               rentPerDay,
               totalAmount,
               pickupLocation,
-              userId
+              userId,
+              carId
             }
           });
         },
