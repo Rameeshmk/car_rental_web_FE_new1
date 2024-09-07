@@ -107,15 +107,15 @@ const router = createBrowserRouter([
         element:<AdminRoutes><Orders/></AdminRoutes> 
       },
       {
-        path: "/3",
+        path: "/dealer/DealersGarrage",
         element: <DealersGarrage/>
       },
       {
-        path: "/4",
+        path: "/dealer/dealerEditCar",
         element: <DealersEditCar/>
       },
       {
-        path: "/5",
+        path: "/dealer/dealersOrder",
         element: <DealersOrder/>
       },
       

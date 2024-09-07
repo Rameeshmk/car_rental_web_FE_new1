@@ -19,17 +19,17 @@ const DealerDashboard = () => {
             </button>
           </Link>
 
-          <Link to="/3">
+          <Link to="/dealer/DealersGarrage">
             <button className="w-full sm:w-48 bg-green-600 text-white py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-green-500">
               YOUR GARRAGE
             </button>
           </Link>
-          <Link to="/4">
+          <Link to="/dealer/dealerEditCar">
             <button className="bg-red-600 text-white py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
               EDIT YOUR CAR
             </button>
           </Link>
-          <Link to="/5">
+          <Link to="/dealer/dealersOrder">
             <button className="w-full sm:w-48 bg-pink-600 text-white py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-pink-500">
               DEALINGS
             </button>
