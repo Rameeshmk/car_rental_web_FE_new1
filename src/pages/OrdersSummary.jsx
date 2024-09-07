@@ -45,7 +45,7 @@ const OrderSummary = () => {
     );
   }
 
-  const { car, startDate, endDate, totalDays, rentPerDay, totalAmount, pickupLocation, userId } = state;
+  const { car, startDate, endDate, totalDays, rentPerDay, totalAmount, pickupLocation, userId,carId } = state;
 
   return (
     <div className="relative p-6 md:p-12 lg:p-16 max-w-4xl mx-auto shadow-lg rounded-lg">
