@@ -32,7 +32,7 @@ const DealersEditCar = () => {
        
         setCar(response.data);
         setInputValues({
-          name: response.data.name,
+          name: car.name,
           make: response.data.make,
           price: response.data.price,
           model: response.data.model,
