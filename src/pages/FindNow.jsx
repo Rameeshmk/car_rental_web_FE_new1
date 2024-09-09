@@ -87,7 +87,7 @@ function FindNow() {
             selected={startDate}
             onChange={(date) => setStartDate(date)}
             placeholderText={startDate ? format(startDate, 'MMMM d, yyyy') : "Select pick-up date"}
-            className="flex border border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex border border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black w-29"
             dateFormat="MMMM d, yyyy"
             isClearable
           />
@@ -101,7 +101,7 @@ function FindNow() {
             selected={endDate}
             onChange={(date) => setEndDate(date)}
             placeholderText={endDate ? format(endDate, 'MMMM d, yyyy') : "Select drop-off date"}
-            className="border border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black w-29"
             dateFormat="MMMM d, yyyy"
             isClearable
           />
