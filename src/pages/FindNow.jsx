@@ -89,6 +89,7 @@ function FindNow() {
             placeholderText="Select pick-up date"
             className="flex border border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             dateFormat="MMMM d, yyyy"
+            isClearable
           />
           <label className="block text-white text-lg font-medium mb-2">
             Pick-up Date
@@ -102,6 +103,7 @@ function FindNow() {
             placeholderText="Select drop-off date"
             className="border border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             dateFormat="MMMM d, yyyy"
+            isClearable
           />
           <label className="block text-white text-lg font-medium mb-2">
             Drop-off Date
