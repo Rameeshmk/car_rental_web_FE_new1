@@ -41,7 +41,7 @@ export default function CarListPage() {
               <p className="text-gray-600">{car.model}</p>
               <p className="text-gray-600">{car.fueltype}</p>
               <p className="text-gray-600">{car.capacity}</p>
-              <p className="text-gray-600">${car.price}</p>
+              <p className="text-gray-600">₹{car.price}</p>
             </div>
             <Link
               to={`/admin/edit/${car._id}`}
