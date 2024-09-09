@@ -86,7 +86,7 @@ function FindNow() {
           <DatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
-            placeholderText="Select pick-up date"
+            placeholderText={startDate ? format(startDate, 'MMMM d, yyyy') : "Select pick-up date"}
             className="flex border border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             dateFormat="MMMM d, yyyy"
             isClearable
@@ -100,7 +100,7 @@ function FindNow() {
           <DatePicker
             selected={endDate}
             onChange={(date) => setEndDate(date)}
-            placeholderText="Select drop-off date"
+            placeholderText={endDate ? format(endDate, 'MMMM d, yyyy') : "Select drop-off date"}
             className="border border-gray-300 p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             dateFormat="MMMM d, yyyy"
             isClearable
