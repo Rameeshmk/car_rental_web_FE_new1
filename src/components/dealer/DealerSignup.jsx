@@ -33,11 +33,11 @@ export default function Signup() {
         withCredentials: true, 
       });
       console.log(res.data);
-      if (res.data.message === "signned in!") {
-        window.alert("Signup successfully! Please Signin");
+      if (res.data.message === "Signup successful, awaiting admin approval!") {
+        window.alert("Signup successfully! Please wait For Admin's Approval");
         setTimeout(() => {
           navigate("/dealer/signin", { replace: true });
-        }, 3000); 
+        }, 2000); 
       }
     } catch (error) {
       console.log(error);
