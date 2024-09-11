@@ -36,7 +36,12 @@ export default function Signin() {
       localStorage.setItem("dealerId",resData.dealerId)
       sessionStorage.setItem("token",resData.token);
       if (resData.userRole === "dealer") {
+        if (resData.isApproved === "true") {
+
         navigate("/dealer", { replace: true });
+      } else if (resData.isApproved === "false") {
+        alert("Your request is under admin's approval.");
+      }
       } else if (resData.userRole === "admin") {
         navigate("/admin", { replace: true });
       }
