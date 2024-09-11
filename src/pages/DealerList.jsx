@@ -27,11 +27,12 @@ const DealerList = () => {
         url: `/dealer/delete-dealer/${dealerId}`,
         method: "DELETE",
       });
+      getDealers();
       const data = res.data;
       console.log(data);
       if (data === "removed sucessfully") {
         
-        getDealers();
+        
       } else {
         console.error("Failed to remove dealer");
       }
