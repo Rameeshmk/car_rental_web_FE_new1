@@ -47,7 +47,8 @@ const DealerList = () => {
                           const data = await res.data;
                           console.log(data);
                           if (data === "removed sucessfully") {
-                            window.location.reload();
+                            //window.location.reload();
+                            getDealers();
                           }
                         }}
                         className="rounded-md bg-red-500 px-2 py-1 text-white"
