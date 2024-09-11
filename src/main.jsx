@@ -45,6 +45,7 @@ import Orders from './pages/Orders.jsx';
 import DealersGarrage from './components/dealer/dealersGarrage.jsx';
 import DealersEditCar from './components/dealer/DealerEditCar.jsx';
 import DealersOrder from './components/dealer/DealerOrder.jsx';
+import AdminNotification from './components/admin/AdminNotification.jsx';
 
 
 const router = createBrowserRouter([
@@ -94,6 +95,12 @@ const router = createBrowserRouter([
         path:"/admin/updatecar",
         element:<AdminRoutes><UpdateCar/></AdminRoutes>
       },
+
+      {
+        path:"/admin/notifications",
+        element:<AdminRoutes><AdminNotification/></AdminRoutes>
+      },
+
       {
         path:"/admin/edit/:id",
         element:<AdminRoutes><EditCar/></AdminRoutes>

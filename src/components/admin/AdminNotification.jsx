@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { axiosInstance } from '../../config/axiosInstance';
 
-const NotificationsPage = () => {
+const AdminNotification = () => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
@@ -68,4 +68,4 @@ const NotificationsPage = () => {
   );
 };
 
-export default NotificationsPage;
+export default AdminNotification;
