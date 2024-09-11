@@ -21,13 +21,13 @@ const AdminNotification = () => {
     fetchNotifications();
   }, []);
 
-  const handleApproval = async (dealerId) => {
+  const handleApproval = async (id) => {
     try {
       await axiosInstance({
-        url:`/dealer/approve-dealer/${dealerId}`,
+        url:`/dealer/approve-dealer/${id}`,
         method:"POST",
     });
-      setNotifications(notifications.filter(notification => notification.dealerId !== dealerId));
+      setNotifications(notifications.filter(notification => notification.id !== id));
     } catch (error) {
       console.error("Error approving dealer", error);
     }
@@ -43,11 +43,11 @@ const AdminNotification = () => {
             <p className="text-gray-700">No notifications at this time.</p>
           ) : (
             notifications.map((notification) => (
-              <div key={notification.dealerId} className="mb-4 p-4 border rounded-lg">
+              <div key={notification.id} className="mb-4 p-4 border rounded-lg">
                 <p>{notification.message}</p>
                 <div className="mt-4 flex gap-4">
                   <button
-                    onClick={() => handleApproval(notification.dealerId)}
+                    onClick={() => handleApproval(notification.id)}
                     className="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700"
                   >
                     Approve
