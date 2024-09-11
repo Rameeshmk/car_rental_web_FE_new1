@@ -19,6 +19,28 @@ const DealerList = () => {
     getDealers();
   }, []);
 
+
+
+  const handleDelete = async (dealerId) => {
+    try {
+      const res = await axiosInstance({
+        url: `/dealer/delete-dealer/${dealerId}`,
+        method: "DELETE",
+      });
+      const data = res.data;
+      console.log(data);
+      if (data === "removed sucessfully") {
+        // Refresh the dealer list
+        getDealers();
+      } else {
+        console.error("Failed to remove dealer");
+      }
+    } catch (error) {
+      console.error("Failed to delete dealer", error);
+    }
+  };
+
+
   return (
     <div className="m-3 border ">
       <TableContainer>
@@ -38,7 +60,18 @@ const DealerList = () => {
                     <Th>{dealer.name}</Th>
                     <Th>{dealer.email}</Th>
                     <Th>
-                      <button
+
+                    <button
+                    onClick={() => handleDelete(dealer._id)}
+                    className="rounded-md bg-red-500 px-2 py-1 text-white"
+                  >
+                    Remove
+                  </button>
+
+
+
+
+                     {/*} <button
                         onClick={async () => {
                           const res = await axiosInstance({
                            url:`/dealer/delete-dealer/${dealer._id}`,
@@ -54,7 +87,7 @@ const DealerList = () => {
                         className="rounded-md bg-red-500 px-2 py-1 text-white"
                       >
                         Remove
-                      </button>
+                      </button>*/}
                     </Th>
                   </Tr>
                 </>
