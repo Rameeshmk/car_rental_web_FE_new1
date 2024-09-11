@@ -30,7 +30,7 @@ const DealerList = () => {
       const data = res.data;
       console.log(data);
       if (data === "removed sucessfully") {
-        // Refresh the dealer list
+        
         getDealers();
       } else {
         console.error("Failed to remove dealer");
