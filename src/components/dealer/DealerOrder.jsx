@@ -52,7 +52,7 @@ const DealersOrder = () => {
         const carId = localStorage.getItem('carId'); 
         
         if (!carId) {
-          throw new Error('User not logged in');
+          throw new Error('No Orders Yet!!');
         }
         const response = await axiosInstance({
           url:`/order/orderss/${carId}`,
