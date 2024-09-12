@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { axiosInstance } from '../../config/axiosInstance';
 
 const DealersOrder = () => {
-  const [cars, setCars] = useState([]); // Initialize as an empty array
+  const [cars, setCars] = useState([]);
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -56,7 +56,7 @@ const DealersOrder = () => {
   };
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p className="text-red-500 text-center text-6xl mt-52"> {error}</p>;
+  if (error) return <p className="text-red-500 text-center text-6xl mt-52">{error}</p>;
 
   // Get current date
   const currentDate = new Date();
@@ -97,6 +97,7 @@ const DealersOrder = () => {
             </div>
           );
         })
+      )
       }
     </div>
   );
