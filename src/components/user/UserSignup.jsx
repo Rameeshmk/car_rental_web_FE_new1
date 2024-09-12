@@ -87,6 +87,12 @@ export default function UserSignup() {
           />
           {errors.lastName && <p className="text-red-500">{errors.lastName.message}</p>}
           <input
+            {...register("mobile")}
+            placeholder="Mobile Number"
+            className="block w-full h-14 rounded-lg border bg-opacity-80 border-gray-300 bg-gray-50 px-2 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+          />
+          {errors.mobile && <p className="text-red-500">{errors.mobile.message}</p>}
+          <input
             {...register("email")}
             placeholder="Email"
             className="block w-full h-14 rounded-lg border bg-opacity-80 border-gray-300 bg-gray-50 px-2 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
