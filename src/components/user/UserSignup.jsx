@@ -42,7 +42,7 @@ export default function UserSignup() {
 
         setTimeout(() => {
           navigate("/home", { replace: true });
-        }, 3000);
+        }, 2000);
       }
     } catch (error) {
       console.log(error);
