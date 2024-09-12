@@ -44,7 +44,7 @@ const MyOrders = () => {
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-800">Your Orders</h1>
       
       {orders.length === 0 ? (
-        <p className="text-center text-lg text-gray-600">No Orders</p>
+        <p className="text-center text-xl text-red-600">No orders found.</p>
       ) : (
         <ul>
           {orders.map(order => (
