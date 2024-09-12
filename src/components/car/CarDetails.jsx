@@ -33,6 +33,7 @@ const CarDetails = () => {
 
   const userId = localStorage.getItem('userId'); 
   const carId = id;
+  const mobile = localStorage.getItem("mobile");
 
   useEffect(() => {
     const fetchCarDetails = async () => {
@@ -130,7 +131,8 @@ const CarDetails = () => {
               totalAmount,
               pickupLocation,
               userId,
-              carId
+              carId,
+              mobile
             }
           });
         },

@@ -18,6 +18,7 @@ const OrderSummary = () => {
             method: 'POST',
             data: {
               userId: state.userId,
+              mobile:state.mobile,
               carId:state.carId,
               car: state.car,
               startDate: state.startDate,
@@ -45,7 +46,7 @@ const OrderSummary = () => {
     );
   }
 
-  const { car, startDate, endDate, totalDays, rentPerDay, totalAmount, pickupLocation, userId,carId } = state;
+  const { car, startDate, endDate, totalDays, rentPerDay, totalAmount, pickupLocation, userId,carId,mobile } = state;
 
   return (
     <div className="relative p-6 md:p-12 lg:p-16 max-w-4xl mx-auto shadow-lg rounded-lg">
@@ -91,6 +92,7 @@ const OrderSummary = () => {
           {pickupLocation || 'Pickup location not provided'}
         </p>
       </div>
+      <p className="text-lg font-semibold text-gray-800">Your order is under process, we will contact at your moble number:{mobile} soon!</p>
     </div>
   );
 };
