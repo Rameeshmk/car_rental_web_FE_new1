@@ -59,8 +59,8 @@ const OrderSummary = () => {
 
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-800">Order Summary</h1>
 
-      <p className="text-lg font-semibold text-gray-800">Your order is under process, we will contact at your moble number:{mobile} soon!</p>
-      
+      <p className="text-lg font-semibold text-red-800">Your order is under process, we will contact at your moble number:{mobile} soon!</p>
+      <br></br>
       <div className="mb-8">
         <h2 className="text-2xl font-semibold mb-4 text-gray-700">Car Details</h2>
         <div className="flex flex-col md:flex-row items-center">
