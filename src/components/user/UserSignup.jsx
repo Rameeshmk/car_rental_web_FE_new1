@@ -38,7 +38,7 @@ export default function UserSignup() {
       console.log(res.data);
 
       if (res.data.message === "Signed successfully!") {
-        window.alert("Signup successfully!");
+        window.alert("Signup successfully!, Please Sign in Again");
 
         setTimeout(() => {
           navigate("/user/signin", { replace: true });
