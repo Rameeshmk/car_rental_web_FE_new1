@@ -41,7 +41,7 @@ export default function UserSignup() {
         window.alert("Signup successfully!");
 
         setTimeout(() => {
-          navigate("/home", { replace: true });
+          navigate("/user/signin", { replace: true });
         }, 2000);
       }
     } catch (error) {
