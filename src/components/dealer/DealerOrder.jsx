@@ -66,7 +66,7 @@ const DealersOrder = () => {
       <h1 className="text-4xl font-bold mb-6 text-center text-gray-800">Orders</h1>
 
       {orders.length === 0 ? (
-        <p className="text-center text-gray-600">No orders found.</p>
+        <p className="text-center text-xl text-red-600">No orders found.</p>
       ) : (
         orders.map(order => {
           // Determine if the order is active or expired
