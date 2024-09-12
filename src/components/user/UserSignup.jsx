@@ -12,6 +12,7 @@ const schema = yup
     lastName: yup.string().required("Last name is required"),
     email: yup.string().email("Invalid email address").required("Email is required"),
     password: yup.string().min(6, "Password must be at least 6 characters long").required("Password is required"),
+    mobile: yup.string().min(10, "mobile number must be at least 10 numbers").max(10, "mobile number must not be more than least 10 numbers").required("mobile is required"),
   })
   .required();
 
@@ -91,7 +92,7 @@ export default function UserSignup() {
             placeholder="Mobile Number"
             className="block w-full h-14 rounded-lg border bg-opacity-80 border-gray-300 bg-gray-50 px-2 py-1.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
           />
-          {errors.mobile && <p className="text-red-500">{errors.mobile.message}mobile is required </p>}
+          {errors.mobile && <p className="text-red-500">{errors.mobile.message} </p>}
           <input
             {...register("email")}
             placeholder="Email"
