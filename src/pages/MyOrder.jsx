@@ -76,39 +76,4 @@ const MyOrders = () => {
 };
 
 
-
-
-
-
-        {/*<ul>
-          {orders &&
-          orders.map(order => (
-            <li key={order._id} className="border-b mb-4 pb-4 justify-center items-center">
-              <li>
-              <h2 className="text-2xl font-semibold text-gray-700"> Car Details</h2>
-              <img src={order.car.image} alt={order.car.name} className="w-full md:w-1/3 rounded-lg shadow-md mb-4 md:mb-0 md:mr-8" />
-              <p className="text-lg text-gray-600">Car Name: {order.car.name}</p>
-              <p className="text-lg text-gray-600">Make:{order.car.make}</p>
-              <p className="text-lg text-gray-600">Model:{order.car.model} </p>
-              <p className="text-lg text-gray-600">Fuel Type:{order.car.fueltype} </p>
-              <p className="text-lg text-gray-600">Capacity:{order.car.capacity} </p>
-              <p className="text-lg text-gray-600">Rent per Day:{order.car.price} </p>
-              </li>
-              <li>
-              <h2 className="text-2xl font-semibold text-gray-700">Order Details</h2>
-              <p className="text-lg text-gray-600">Car Name: {order.car.name}</p>
-              <p className="text-lg text-gray-600">Start Date: {new Date(order.startDate).toLocaleDateString()}</p>
-              <p className="text-lg text-gray-600">End Date: {new Date(order.endDate).toLocaleDateString()}</p>
-              <p className="text-lg font-semibold text-gray-800">Total Days: {order.totalDays}</p>
-              <p className="text-lg font-semibold text-gray-800">Total Amount: ₹ {order.totalAmount}</p>
-              <p className="text-lg font-semibold text-gray-800">Pickup Location: {order.pickupLocation}</p>
-            </li>
-            </li>
-          ))}
-        </ul>
-      
-    </div>
-  );
-};*/}
-
 export default MyOrders;
