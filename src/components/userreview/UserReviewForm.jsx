@@ -116,7 +116,7 @@ import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../config/axiosInstance';
 
 const UserReviewForm = ({ onReviewSubmitted }) => {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState();
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
   const [isFormVisible, setIsFormVisible] = useState(false);
