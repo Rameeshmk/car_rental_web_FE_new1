@@ -3,10 +3,10 @@ import { axiosInstance } from '../../config/axiosInstance';
 
 const UserReviewForm = ({ onReviewSubmitted }) => {
   const [username, setUsername] = useState('');
+  const [lname, setLname] = useState('');
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
   const [isFormVisible, setIsFormVisible] = useState(false);
-  const[lname,setLname]=useState('');
 
   const userId = localStorage.getItem('userId');
 
@@ -18,8 +18,8 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
         }
         const res = await axiosInstance.get(`/user/get-user/${userId}`);
         const name = res.data.firstName;
-        const lastName =res.data.lastName; // Assuming the user's first name is returned
-        setUsername(name); // Set the username state
+        const lastName = res.data.lastName;
+        setUsername(name);
         setLname(lastName);
       } catch (error) {
         console.error('Error fetching user:', error);
@@ -31,14 +31,14 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const review = { username,lname, rating, comment };
+    const review = { username, lname, rating, comment };
 
     try {
       const response = await axiosInstance.post('/user/reviews', review, {
         headers: { 'Content-Type': 'application/json' },
       });
       onReviewSubmitted(response.data);
-      
+
       // Show success alert
       window.alert('Successfully submitted the review!');
 
@@ -68,9 +68,9 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
               <input
                 id="username"
                 type="text"
-                value={(username)(lname)}
+                value={`${username} ${lname}`} // Combine username and last name
                 readOnly // Set input to read-only
-                placeholder={(username)(lname)}  // Placeholder can still be present
+                placeholder={`${username} ${lname}`}  // Combine username and last name for placeholder
                 required
                 className="text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
@@ -115,6 +115,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
 };
 
 export default UserReviewForm;
+
 
 
 {/*import { useEffect, useState } from 'react';
