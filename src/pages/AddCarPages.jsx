@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { axiosInstance } from "../config/axiosInstance";
+import { useNavigate } from 'react-router-dom';
+
 
 const schema = yup
   .object({
@@ -23,6 +25,7 @@ const schema = yup
 export default function AddCarPages() {
   const [dealer, setDealer] = useState([]);
   const { register, handleSubmit, formState: { errors }, reset } = useForm({ resolver: yupResolver(schema) });
+  const navigate = useNavigate();
 
   useEffect(() => {
     const dealerList = async () => {
@@ -61,6 +64,7 @@ export default function AddCarPages() {
       });
       window.alert("Your Car is Added Successfully, Please check your Garrage");
       reset();
+      navigate("/admin/cars");
       
     
     } catch (error) {
