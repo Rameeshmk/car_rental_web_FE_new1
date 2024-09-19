@@ -113,7 +113,6 @@ const fetchUser = async () => {
 export default UserReviewForm;*/}
 
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { axiosInstance } from '../../config/axiosInstance';
 
 const UserReviewForm = ({ onReviewSubmitted }) => {
@@ -150,7 +149,6 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
         headers: { 'Content-Type': 'application/json' },
       });
       onReviewSubmitted(response.data);
-      setUsername(username); // Keep the username as is after submission
       setRating(1);
       setComment('');
       setIsFormVisible(false); // Hide the form after submission
@@ -172,13 +170,13 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
           <h2 className="text-2xl font-bold mb-4">Submit a Review</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700">Your Name</label>
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700">Your Name (read-only)</label>
               <input
                 id="username"
                 type="text"
                 value={username}
-                //onChange={(e) => setUsername(e.target.value)}
-                placeholder={username}
+                readOnly // Set input to read-only
+                placeholder="Your name" // Placeholder can still be present
                 required
                 className="text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
