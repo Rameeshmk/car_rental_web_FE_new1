@@ -20,7 +20,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
         const name = res.data.firstName;
         const lastName =res.data.lastName; // Assuming the user's first name is returned
         setUsername(name); // Set the username state
-        setUsername(lastName);
+        setLname(lastName);
       } catch (error) {
         console.error('Error fetching user:', error);
       }
@@ -31,7 +31,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const review = { username, rating, comment };
+    const review = { username,lname, rating, comment };
 
     try {
       const response = await axiosInstance.post('/user/reviews', review, {
@@ -68,9 +68,9 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
               <input
                 id="username"
                 type="text"
-                value={username} 
+                value={(username)(lname)}
                 readOnly // Set input to read-only
-                placeholder={username}  // Placeholder can still be present
+                placeholder={(username)(lname)}  // Placeholder can still be present
                 required
                 className="text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
