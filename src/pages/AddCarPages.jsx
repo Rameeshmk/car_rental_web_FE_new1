@@ -64,7 +64,7 @@ export default function AddCarPages() {
       });
       window.alert("Your Car is Added Successfully, Please check your Garrage");
       reset();
-      navigate("/admin/cars");
+      //navigate("/admin/cars");
       
     
     } catch (error) {

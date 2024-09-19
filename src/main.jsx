@@ -77,7 +77,7 @@ const router = createBrowserRouter([
 
       {
         path: "/admin/cars",
-        element: <DealersCarPage/>
+        element:<AdminRoutes> <DealersCarPage/></AdminRoutes>
       },
       {
         path: "/admin/dealers",
