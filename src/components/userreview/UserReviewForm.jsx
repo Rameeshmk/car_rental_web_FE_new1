@@ -176,7 +176,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
                 type="text"
                 value={username}
                 readOnly // Set input to read-only
-                placeholder="Your name" // Placeholder can still be present
+                placeholder={username}// Placeholder can still be present
                 required
                 className="text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
