@@ -6,7 +6,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
   const [isFormVisible, setIsFormVisible] = useState(false);
-  const[lNmae,setLname]=useState();
+  const[lname,setLname]=useState('');
 
   const userId = localStorage.getItem('userId');
 
@@ -20,7 +20,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
         const name = res.data.firstName;
         const lastName =res.data.lastName; // Assuming the user's first name is returned
         setUsername(name); // Set the username state
-        setLname(lastName);
+        setUsername(lastName);
       } catch (error) {
         console.error('Error fetching user:', error);
       }
@@ -68,9 +68,9 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
               <input
                 id="username"
                 type="text"
-                value={username}
+                value={username} 
                 readOnly // Set input to read-only
-                placeholder={username} {lastName}// Placeholder can still be present
+                placeholder={username}  // Placeholder can still be present
                 required
                 className="text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
