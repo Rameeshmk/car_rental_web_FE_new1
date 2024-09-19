@@ -170,7 +170,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
           <h2 className="text-2xl font-bold mb-4">Submit a Review</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700">Your Name</label>
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700 text-center">Your Name</label>
               <input
                 id="username"
                 type="text"
