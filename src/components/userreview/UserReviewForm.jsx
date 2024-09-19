@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+{/*import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../config/axiosInstance';
 
 const UserReviewForm = ({ onReviewSubmitted }) => {
@@ -114,15 +114,14 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
   );
 };
 
-export default UserReviewForm;
+export default UserReviewForm;*/}
 
-
-
-{/*import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../config/axiosInstance';
 
 const UserReviewForm = ({ onReviewSubmitted }) => {
-  const [username, setUsername] = useState();
+  const [username, setUsername] = useState('');
+  const [lname, setLname] = useState('');
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -136,8 +135,10 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
           throw new Error('User not logged in');
         }
         const res = await axiosInstance.get(`/user/get-user/${userId}`);
-        const name = res.data.firstName; // Assuming the user's first name is returned
-        setUsername(name); // Set the username state
+        const name = res.data.firstName;
+        const lastName = res.data.lastName;
+        setUsername(name);
+        setLname(lastName);
       } catch (error) {
         console.error('Error fetching user:', error);
       }
@@ -148,16 +149,23 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const review = { username, rating, comment };
+    const review = { username, lname, rating, comment };
 
     try {
       const response = await axiosInstance.post('/user/reviews', review, {
         headers: { 'Content-Type': 'application/json' },
       });
-      onReviewSubmitted(response.data);
+
+      // Show success alert
+      window.alert('Successfully submitted the review!');
+
+      // Clear the inputs
       setRating(1);
       setComment('');
       setIsFormVisible(false); // Hide the form after submission
+
+      // Notify parent component about the new review
+      onReviewSubmitted(response.data);
     } catch (error) {
       console.error('Error submitting review:', error);
     }
@@ -176,13 +184,12 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
           <h2 className="text-2xl font-bold mb-4">Submit a Review</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700 text-center">Your Name</label>
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700">Your Name</label>
               <input
                 id="username"
                 type="text"
-                value={username}
+                value={`${username} ${lname}`} // Combine username and last name
                 readOnly // Set input to read-only
-                placeholder={username}// Placeholder can still be present
                 required
                 className="text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
@@ -226,5 +233,10 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
   );
 };
 
-export default UserReviewForm;*/}
+export default UserReviewForm;
+
+
+
+
+
 
