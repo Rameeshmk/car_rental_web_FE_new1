@@ -59,9 +59,9 @@ export default function AddCarPages() {
         },
         withCredentials: true, 
       });
-      
+      window.alert("Your Car is Added Successfully, Please check your Garrage");
       reset();
-      window.alert("Your Car is Added Successfully, Please check your Garrage")
+      
     
     } catch (error) {
       console.log(error);
