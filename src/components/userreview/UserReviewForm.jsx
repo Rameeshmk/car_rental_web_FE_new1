@@ -37,7 +37,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
       onReviewSubmitted(response.data);
       
       // Show success alert
-      alert('Successfully submitted the review!');
+      window.alert('Successfully submitted the review!');
 
       // Clear the inputs
       setRating(1);
