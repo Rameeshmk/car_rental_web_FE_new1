@@ -35,6 +35,11 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
         headers: { 'Content-Type': 'application/json' },
       });
       onReviewSubmitted(response.data);
+      
+      // Show success alert
+      alert('Successfully submitted the review!');
+
+      // Clear the inputs
       setRating(1);
       setComment('');
       setIsFormVisible(false); // Hide the form after submission
@@ -107,7 +112,6 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
 };
 
 export default UserReviewForm;
-
 
 
 {/*import { useEffect, useState } from 'react';
