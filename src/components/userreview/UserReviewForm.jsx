@@ -1,54 +1,50 @@
-{/*import { useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../config/axiosInstance';
 
 const UserReviewForm = ({ onReviewSubmitted }) => {
-  const [username, setUsername] = useState();
+  const [username, setUsername] = useState('');
   const [rating, setRating] = useState(1);
   const [comment, setComment] = useState('');
   const [isFormVisible, setIsFormVisible] = useState(false);
 
-const userId= localStorage.getItem('userId');
+  const userId = localStorage.getItem('userId');
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        if (!userId) {
+          throw new Error('User not logged in');
+        }
+        const res = await axiosInstance.get(`/user/get-user/${userId}`);
+        const name = res.data.firstName; // Assuming the user's first name is returned
+        setUsername(name); // Set the username state
+      } catch (error) {
+        console.error('Error fetching user:', error);
+      }
+    };
 
-const fetchUser = async () => {
-  try {
-    if (!userId) {
-      throw new Error('User not logged in');
-    }
-    const res= await axiosInstance({
-      url:`/user/get-user/${userId}`,
-    method:"GET",
-    });
-   const user= res.data
-   const name= user.firstName;
-  }
-  setUsername(name);
-},
+    fetchUser();
+  }, [userId]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const review = { username, rating, comment };
 
     try {
-      const response = await axiosInstance({
-        url: '/user/reviews',          
-        method: 'POST',                
-        data: review,                  
-        headers: { 'Content-Type': 'application/json' }, 
+      const response = await axiosInstance.post('/user/reviews', review, {
+        headers: { 'Content-Type': 'application/json' },
       });
       onReviewSubmitted(response.data);
-      setUsername('');
       setRating(1);
       setComment('');
       setIsFormVisible(false); // Hide the form after submission
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error submitting review:', error);
     }
   };
 
   return (
-    <div className="max-w-sm mx-auto p-6  bg-white shadow-md rounded-lg">
+    <div className="max-w-sm mx-auto p-6 bg-white shadow-md rounded-lg">
       <button
         onClick={() => setIsFormVisible(!isFormVisible)}
         className="w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mb-4"
@@ -65,8 +61,8 @@ const fetchUser = async () => {
                 id="username"
                 type="text"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Your name"
+                readOnly // Set input to read-only
+                placeholder={username} // Placeholder can still be present
                 required
                 className="text-black mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
               />
@@ -110,9 +106,10 @@ const fetchUser = async () => {
   );
 };
 
-export default UserReviewForm;*/}
+export default UserReviewForm;
 
-import { useEffect, useState } from 'react';
+
+{/*import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../config/axiosInstance';
 
 const UserReviewForm = ({ onReviewSubmitted }) => {
@@ -220,5 +217,5 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
   );
 };
 
-export default UserReviewForm;
+export default UserReviewForm;*/}
 
