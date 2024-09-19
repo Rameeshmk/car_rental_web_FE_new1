@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { axiosInstance } from '../../config/axiosInstance';
 
 const DealersGarrage = () => {
-  const { id } = useParams(); // Get the car ID from the URL (if needed)
-  const [cars, setCars] = useState([]); // Initialize as an empty array
+  const { id } = useParams(); 
+  const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -21,7 +21,7 @@ const DealersGarrage = () => {
           url: `/dealer/get-dealerscars/${dealerId}`,
           method: 'GET',
         });
-        const data = response.data.data; // Assuming the data is in response.data.data
+        const data = response.data.data; 
         setCars(response.data);
         console.log(response.data);
         

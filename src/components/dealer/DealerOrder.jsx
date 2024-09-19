@@ -7,7 +7,7 @@ const DealersOrder = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch all cars
+  
   useEffect(() => {
     const fetchCars = async () => {
       try {
@@ -25,7 +25,7 @@ const DealersOrder = () => {
         const data = response.data;
         setCars(data);
 
-        // Fetch orders for all cars
+        
         fetchOrders(data.map(car => car._id));
       } catch (error) {
         setError(error.message);
@@ -35,7 +35,7 @@ const DealersOrder = () => {
     fetchCars();
   }, []);
 
-  // Fetch orders for a list of car IDs
+  
   const fetchOrders = async (carIds) => {
     try {
       const orderRequests = carIds.map(carId =>
@@ -58,7 +58,7 @@ const DealersOrder = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p className="text-red-500 text-center text-6xl mt-52">{error}</p>;
 
-  // Get current date
+  
   const currentDate = new Date();
 
   return (
@@ -69,7 +69,7 @@ const DealersOrder = () => {
         <p className="text-center text-xl text-red-600">No orders found.</p>
       ) : (
         orders.map(order => {
-          // Determine if the order is active or expired
+          
           const isActive = new Date(order.endDate) >= currentDate;
           const status = isActive ? 'Active' : 'Expired';
           const statusClass = isActive ? 'text-green-600' : 'text-red-600';

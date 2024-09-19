@@ -182,7 +182,7 @@ const UserReviewForm = ({ onReviewSubmitted }) => {
       {isFormVisible && (
         <>
           <h2 className="text-2xl font-bold mb-4">Submit a Review</h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-2">
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-700">Your Name</label>
               <input
