@@ -54,7 +54,7 @@ const LandingPage = () => {
      
     </div>
 
-    <div className='mb-10'>
+    <div className='mt-10'>
 <CarImages/>
 <UserReviewList/>
 
