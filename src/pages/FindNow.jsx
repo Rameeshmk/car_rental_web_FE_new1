@@ -147,14 +147,14 @@ function FindNow() {
       {/* Display Filtered Cars */}
       {showCars && (
         <section id="filtered-cars" className='mt-8'>
-          <h2 className="text-xl font-semibold mb-4 text-center">Available Cars</h2>
+          <h2 className="text-xl font-semibold mb-2 text-center">Available Cars</h2>
           {loading && <p>Loading...</p>}
           {error && <p className="text-red-500">{error}</p>}
           {!loading && !error && (
             <div>
               {Object.keys(groupedCars).length > 0 ? (
                 Object.keys(groupedCars).map(make => (
-                  <div key={make} className='mb-8'>
+                  <div key={make} className='mb-4'>
                     <h3 className="text-lg font-semibold text-center mb-4">{make}</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 m-16">
                       {groupedCars[make].map(car => (
