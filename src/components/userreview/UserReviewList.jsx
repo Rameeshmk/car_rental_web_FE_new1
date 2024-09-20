@@ -38,7 +38,7 @@ const UserReviewList = () => {
               
               <div >
                 <p className="text-lg mb-2">{review.comment}</p>
-                <p className="font-semibold">- {`${username} ${lname}`}</p>
+                <p className="font-semibold">- {`${review.username} ${review.lname}`}</p>
                 <p className="text-sm text-gray-600">Rating: {review.rating}</p>
               </div>
             </div>
