@@ -156,7 +156,7 @@ function FindNow() {
                 Object.keys(groupedCars).map(make => (
                   <div key={make} className='mb-4'>
                     <h3 className="text-lg font-semibold text-center mb-4">{make}</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 m-16">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 m-10">
                       {groupedCars[make].map(car => (
                         <div key={car.id} className="bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden m-6">
                           <img src={car.image || 'https://via.placeholder.com/400x250'} alt={car.name} className="w-full h-52 object-cover p-6" />
