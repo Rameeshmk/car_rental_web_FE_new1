@@ -161,7 +161,7 @@ function FindNow() {
                         <div key={car.id} className="bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden m-2">
                           <img src={car.image || 'https://via.placeholder.com/400x250'} alt={car.name} className="w-full h-24 object-cover p-4" />
                           <div className="p-4">
-                            <h4 className="text-lg font-semibold">{car.model}</h4>
+                            {/*<h4 className="text-lg font-semibold">{car.model}</h4>*/}
                             <p className="text-gray-700">{car.make || 'No description available'}</p>
                             
                           </div>
