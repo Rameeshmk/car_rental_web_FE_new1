@@ -43,7 +43,7 @@ const LandingPage = () => {
          
           <h2 className="text-3xl font-bold mb-8">Ready to Rent Your Dream Car?</h2>
 
-          <div className='mb-4' >
+          <div  >
           <FindNow/>
           </div>
 
@@ -54,7 +54,7 @@ const LandingPage = () => {
      
     </div>
 
-    <div className='mt-10'>
+    <div>
 <CarImages/>
 <UserReviewList/>
 
